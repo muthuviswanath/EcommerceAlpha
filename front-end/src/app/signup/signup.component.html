@@ -64,6 +64,16 @@
       </div>
     </div>
 
+
+    <input type="text" class="text" name="Role" placeholder="Role" [formControl]="role">
+    <span>Enter your Role</span>
+
+    <div [hidden]="role.valid || role.untouched" style="float:right; color:red">
+      <div [hidden]="!role.hasError('required')">
+        Role cannot be empty!
+      </div>
+    </div>
+
     <button class="signin" type="submit" [disabled]="!loginForm.valid">
        Create Account
     </button>
