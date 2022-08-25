@@ -19,6 +19,8 @@ import { UserComponent } from './user/user.component';
 import { WishlistServices } from './wishlist/wishlist.services';
 import { UserServices } from './user/user.services';
 import { HeaderComponent } from './header/header.component';
+import { BannerComponent } from './banner/banner.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { HeaderComponent } from './header/header.component';
      OrderComponent,
      WishlistComponent,
      UserComponent,
-     HeaderComponent
+     HeaderComponent,
+     BannerComponent,
+     HomeComponent
   ],
   imports: [
     FormsModule,
