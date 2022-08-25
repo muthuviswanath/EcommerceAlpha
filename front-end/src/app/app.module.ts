@@ -43,7 +43,7 @@ import { NewarrivalComponent } from './newarrival/newarrival.component';
 
      HeaderComponent,
      BannerComponent,
-     HomeComponent
+     HomeComponent,
 
 
      LoginComponent,
