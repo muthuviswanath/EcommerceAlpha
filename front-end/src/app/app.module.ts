@@ -18,6 +18,7 @@ import { OrderServices } from './order/order.services';
 import { UserComponent } from './user/user.component';
 import { WishlistServices } from './wishlist/wishlist.services';
 import { UserServices } from './user/user.services';
+import { NewarrivalComponent } from './newarrival/newarrival.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UserServices } from './user/user.services';
      CartComponent,
      OrderComponent,
      WishlistComponent,
-     UserComponent
+     UserComponent,
+     NewarrivalComponent
   ],
   imports: [
     FormsModule,
