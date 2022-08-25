@@ -1,0 +1,56 @@
+<body>
+
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  
+
+
+<div class="login">
+ 
+  <h3 style="font-weight:bold">Login to your account.</h3>
+
+  <div *ngIf="showMessage">
+    <h3 style = "margin-top:0px; float:right;">Login successful</h3>
+  </div>
+
+  <form [FormGroup] = "loginForm" (ngSubmit)="signupUser()">
+    
+
+    <input type="text" class="text" name="username" placeholder="Username" [formControl]="username" [(ngModel)]="UserName">
+    <span>Enter your Username</span>
+    
+    <div [hidden]="username.valid || username.untouched" style="float:right; color:red">
+      
+      <div [hidden]="!username.hasError('minlength')">
+        Username cannot be less than 5 characters!
+      </div>
+
+      <div [hidden]="!username.hasError('required')">
+        Username cannot be empty!
+      </div>
+
+    </div>
+
+
+    <input type="password" class="text" name="username" placeholder="Password" [formControl]="password" [(ngModel)]="PassWord">
+    <span>Enter your Password</span>
+
+    <div [hidden]="password.valid || password.untouched" style="float:right; color:red">
+      <div [hidden]="!password.hasError('minlength')">
+        Password cannot be less than 8 characters!
+      </div>
+      <div [hidden]="!password.hasError('required')">
+        Password cannot be empty!
+      </div>
+    </div>
+
+    <button class="signin" type="submit" [disabled]="!loginForm.valid">
+       Log In
+    </button>
+
+  
+    
+  </form>
+  
+  
+   </div>
+</body>

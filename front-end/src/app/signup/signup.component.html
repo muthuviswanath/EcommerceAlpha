@@ -1,0 +1,89 @@
+<body>
+
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+
+<div class="login">
+ 
+  <h3 style="font-weight:bold">Create new account.</h3>
+
+  <div *ngIf="showMessage">
+    <h3 style = "margin-top:0px; float:right;">Login successful</h3>
+  </div>
+
+  <form [FormGroup] = "loginForm" (ngSubmit)="signupUser()">
+    
+
+    <input type="text" class="text" name="username" placeholder="Username" [formControl]="username">
+    <span>Enter a Username</span>
+    
+    <div [hidden]="username.valid || username.untouched" style="float:right; color:red">
+      
+      <div [hidden]="!username.hasError('minlength')">
+        Username cannot be less than 5 characters!
+      </div>
+
+      <div [hidden]="!username.hasError('required')">
+        Username cannot be empty!
+      </div>
+
+    </div>
+
+
+    <input type="password" class="text" name="username" placeholder="Password" [formControl]="password">
+    <span>Enter a Password</span>
+
+    <div [hidden]="password.valid || password.untouched" style="float:right; color:red">
+      <div [hidden]="!password.hasError('minlength')">
+        Password cannot be less than 8 characters!
+      </div>
+      <div [hidden]="!password.hasError('required')">
+        Password cannot be empty!
+      </div>
+    </div>
+
+
+
+    <input type="text" class="text" name="address" placeholder="Address" [formControl]="address">
+    <span>Enter your address</span>
+
+    <div [hidden]="address.valid || address.untouched" style="float:right; color:red">
+      <div [hidden]="!address.hasError('required')">
+        Address cannot be empty!
+      </div>
+    </div>
+
+
+
+    <input type="text" class="text" name="Email" placeholder="Email ID" [formControl]="email">
+    <span>Enter your Email ID</span>
+
+    <div [hidden]="email.valid || email.untouched" style="float:right; color:red">
+      <div [hidden]="!email.hasError('required')">
+        Email cannot be empty!
+      </div>
+    </div>
+
+    <button class="signin" type="submit" [disabled]="!loginForm.valid">
+       Create Account
+    </button>
+
+    
+
+    <div class="logindiv">
+    <p style="margin-left:26%; ">Already have an account ?</p>
+    <button routerLink="/login" class="loginbutton" style="margin-left:5px">Log In</button>
+    </div>
+    
+  </form>
+  
+  
+   </div>
+  
+</body>
+<!-- <app-category></app-category> -->
+<!-- <app-cart></app-cart> -->
+
+<router-outlet></router-outlet>
+
+

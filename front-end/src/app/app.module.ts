@@ -1,8 +1,10 @@
-import { NgModule } from '@angular/core';
+import { NgModule ,NO_ERRORS_SCHEMA} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { ProductServices} from './product-card/product.services'
 
@@ -18,9 +20,15 @@ import { OrderServices } from './order/order.services';
 import { UserComponent } from './user/user.component';
 import { WishlistServices } from './wishlist/wishlist.services';
 import { UserServices } from './user/user.services';
+
 import { HeaderComponent } from './header/header.component';
 import { BannerComponent } from './banner/banner.component';
 import { HomeComponent } from './home/home.component';
+
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { NewarrivalComponent } from './newarrival/newarrival.component';
+
 
 @NgModule({
   declarations: [
@@ -32,16 +40,26 @@ import { HomeComponent } from './home/home.component';
      OrderComponent,
      WishlistComponent,
      UserComponent,
+
      HeaderComponent,
      BannerComponent,
      HomeComponent
+
+
+     LoginComponent,
+     SignupComponent,
+
+     NewarrivalComponent
+
+
   ],
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule,HttpClientModule
+    AppRoutingModule,HttpClientModule,ReactiveFormsModule
   ],
   providers: [CartServices,OrderServices,WishlistServices,UserServices,ProductServices],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas : [NO_ERRORS_SCHEMA]
 })
 export class AppModule { }
