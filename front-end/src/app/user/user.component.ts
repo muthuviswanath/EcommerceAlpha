@@ -13,7 +13,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.service.getAllOrderInfo().subscribe(
+    this.service.fetchUserList().subscribe(
 
       res => this.userList = res
 

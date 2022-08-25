@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormControl, FormGroup,Form } from '@angular/forms';
+import { UserServices } from '../user/user.services';
 
 
 @Component({
@@ -19,8 +20,8 @@ export class SignupComponent implements OnInit
 
 
   ngOnInit(): void {}
-  constructor(private builder: FormBuilder) {}
-  
+  constructor(private builder: FormBuilder, private services:UserServices) {}
+
   loginForm : FormGroup = this.builder.group
     ({
     username :  this.username,
@@ -33,6 +34,10 @@ export class SignupComponent implements OnInit
     signupUser()
     {
       this.showMessage = true;
+    }
+    model: any = {};
+    public submit(): void {
+      this.services.addUserData(this.model).subscribe();
     }
 
 }
