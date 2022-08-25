@@ -22,6 +22,7 @@ import { WishlistServices } from './wishlist/wishlist.services';
 import { UserServices } from './user/user.services';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { NewarrivalComponent } from './newarrival/newarrival.component';
 
 @NgModule({
   declarations: [
@@ -33,8 +34,12 @@ import { SignupComponent } from './signup/signup.component';
      OrderComponent,
      WishlistComponent,
      UserComponent,
+
      LoginComponent,
-     SignupComponent
+     SignupComponent,
+
+     NewarrivalComponent
+
   ],
   imports: [
     FormsModule,
