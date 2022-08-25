@@ -20,9 +20,15 @@ import { OrderServices } from './order/order.services';
 import { UserComponent } from './user/user.component';
 import { WishlistServices } from './wishlist/wishlist.services';
 import { UserServices } from './user/user.services';
+
+import { HeaderComponent } from './header/header.component';
+import { BannerComponent } from './banner/banner.component';
+import { HomeComponent } from './home/home.component';
+
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { NewarrivalComponent } from './newarrival/newarrival.component';
+
 
 @NgModule({
   declarations: [
@@ -35,10 +41,16 @@ import { NewarrivalComponent } from './newarrival/newarrival.component';
      WishlistComponent,
      UserComponent,
 
+     HeaderComponent,
+     BannerComponent,
+     HomeComponent
+
+
      LoginComponent,
      SignupComponent,
 
      NewarrivalComponent
+
 
   ],
   imports: [

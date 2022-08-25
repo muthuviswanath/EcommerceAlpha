@@ -1,0 +1,19 @@
+.navbar{
+    background-color: #000000;
+  }
+ 
+  a:hover{
+    color: #e88382;
+  }
+
+  a{
+    color: #fff;
+  }
+  a:active{
+    color:#fff;
+  }
+  a:visited{
+    color: #fff;
+  }
+  
+  
