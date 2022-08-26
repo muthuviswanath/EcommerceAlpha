@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormControl, FormGroup,Form } from '@angular/forms';
-
-
+import { ProductServices } from '../product.services';
 
 @Component({
   selector: 'app-login',
@@ -10,32 +9,47 @@ import { Validators, FormBuilder, FormControl, FormGroup,Form } from '@angular/f
 })
 export class LoginComponent implements OnInit 
 {
-  public showMessage:boolean=false;
-  username = new FormControl('',[Validators.required,Validators.minLength(5)]);
-  password = new FormControl('',[Validators.required,Validators.minLength(8)]);
- 
-  
-  UserName : string='';
-  PassWord : string='';
-  
-  
-
-
   ngOnInit(): void {}
-  constructor(private builder: FormBuilder) {}
-  
-  loginForm : FormGroup = this.builder.group
-    ({
-    username :  this.username,
-    password : this.password,
-    });
+  constructor(private service : ProductServices ) {}
 
-    signupUser()
+  
+   loginForm = new FormGroup
+   (
     {
-      if(this.UserName=="Devansh" && this.PassWord=="Messon12")alert("Congratulations, Login SuccessFul");
-      else alert("Login Un-SuccessFul");
+      username : new FormControl('',[Validators.required,Validators.minLength(5)]),
+      password :  new FormControl('',[Validators.required,Validators.minLength(8)])
     }
-  
-  
+   );
+
+   loginauth():void
+   {
+    
+     this.service.LoginUser([this.loginForm.value.username,this.loginForm.value.password])
+     .subscribe
+     (
+       res=>
+       {
+         if(res=='Failure')
+         {
+           alert("Login Un-Successful");
+         }
+         else{
+           alert("Login SuccessFull");
+         }
+       }
+       
+     );
+   } 
+
+   //Pending
+
+  //  get Empname() : FormControl
+  //  {
+  //    return this.loginForm.get('username') as FormControl;
+  //  }
+  //  get Empid() : FormControl
+  //  {
+  //    return this.loginForm.get('password') as FormControl;
+  //  }
 
 }

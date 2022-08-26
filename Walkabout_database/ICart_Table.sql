@@ -6,6 +6,6 @@ INSERT INTO [dbo].[Cart]
            ,[ProductId]
            ,[CartTotal])
      VALUES
-           (2,7,2500)
+           (2,5,2500)
 GO
 

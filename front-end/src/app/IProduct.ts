@@ -1,4 +1,5 @@
-export interface IProduct{
+export interface IProduct
+{
   productName:string;
   quantity:number;
   price:number;

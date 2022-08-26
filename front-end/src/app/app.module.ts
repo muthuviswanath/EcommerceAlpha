@@ -28,6 +28,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { NewarrivalComponent } from './newarrival/newarrival.component';
+import { CategoryComponent } from './category/category.component';
+import { BannernewarrivalComponent } from './bannernewarrival/bannernewarrival.component';
 
 
 @NgModule({
@@ -49,7 +51,9 @@ import { NewarrivalComponent } from './newarrival/newarrival.component';
      LoginComponent,
      SignupComponent,
 
-     NewarrivalComponent
+     NewarrivalComponent,
+       CategoryComponent,
+       BannernewarrivalComponent
 
 
   ],

@@ -1,1 +1,63 @@
-<p>cart works!</p>
+<html>
+  <head>
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body>
+
+    
+     <div class="container">
+      <!-- Products Cart -->
+      <div class="column1">
+      <h4>Your Cart</h4>
+      <table class="tablecart">
+        <tr *ngFor="let crd of cartList" class="cartrow">
+       
+          <td><img src="assets/images/s1.jpg" class="image"></td>
+          <td>
+            <p class="productname">Product Name</p>
+            <p class="productdesc">Women's Shoes</p>
+            <p class="productdesc">Ghost Green/Pink Blast/Photo Blue/Black</p>
+            <p>Size: 2.5  Quantity: 1</p>
+          </td>
+          
+          <td>₹ Price</td>
+        
+        
+        </tr>
+          
+
+      </table>
+      </div>
+
+      <!-- Summary  -->
+      <div class="column2">
+        <h4>Summary</h4>
+        
+        <table class="tablesummary">
+          <tr>
+            <td>Subtotal</td>
+            <td>₹ Cart Total</td>
+          </tr>
+          <tr>
+            <td>Estimated Delivery & Handling</td>
+            <td>₹ 0</td>
+          </tr>
+          <div class="fade_rule"></div>  
+          
+          <tr>
+            <td>Total</td>
+            <td>₹ 45677</td>
+          </tr>
+          <div class="fade_rule"></div>   
+
+         
+        </table>
+        <button class="checkout">Checkout</button>
+
+      </div>
+     </div>
+  </body>
+    
+</html>

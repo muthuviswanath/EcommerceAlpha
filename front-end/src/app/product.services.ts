@@ -10,23 +10,30 @@ import  {IProduct} from "./IProduct";
 
 })
 
-export class ProductServices implements OnInit {
-
-
+export class ProductServices implements OnInit 
+{
 
     constructor(private http:HttpClient){}
 
-    baseUrl:string = "http://localhost:5000/api/"
+    baseUrl:string = "http://localhost:5000"
 
     ngOnInit(): void {
 
     }
 
-    getAllEmpInfo():Observable<IProduct[]>{
-
+    getAllEmpInfo():Observable<IProduct[]>
+    {
         return this.http.get<IProduct[]>(this.baseUrl+"Products");
+    }
 
-
+    LoginUser(loginInfo : Array<string>)
+    {
+        return this.http.post
+        (
+            this.baseUrl+ '/api/Users/' +'LoginUser',
+            {userName : loginInfo[0], password :loginInfo[1] },
+            {responseType : 'text',}
+        )
     }
 
 }
