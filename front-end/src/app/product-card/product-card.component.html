@@ -1,154 +1,78 @@
-
-
-<div class="shell">
-  <div class="container">
-    <!-- <div class="row"> -->
-      <div class="col-md-3">
-        <div class="wsk-cp-product">
-          <!--image-->
-          <div class="wsk-cp-img">
-            <img src="https://static.nike.com/a/images/t_default/f4e40d1c-1e7a-48cc-acce-fab5b858c93b/air-jordan-1-zoom-cmft-shoes-mDxHSk.png" alt="Product" class="img-responsive"  />
-          </div>
-          <div class="wsk-cp-text">
-            <div class="category">
-              <span>Add to Cart</span>
-            </div>
-            <div class="title-product">
-              <h3>My face not my heart</h3>
-            </div>
-            <div class="description-prod">
-              <p>Description Product tell me how to change playlist height size like 600px in html5 player. player good work now check this link</p>
-            </div>
-            <div class="card-footer">
-              <div class="wcf-left"><span class="price">Rp500.000</span></div>
-              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
-            </div>
-          </div>
+ <link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
+<div class="wrapper-container">
+<div class="wrapper" *ngFor="let prod of productList">
+  <div class="container" >
+    <div class="top">
+      <img src={{prod.imagePath}}/>
+    </div>
+    <div class="bottom">
+      <div class="left">
+        <div class="details">
+          <h1 style="font-size: 15px;">{{ prod.productName }}</h1>
+          <span style="text-decoration: line-through;">{{ prod.price | currency:'INR'}}</span>
+          <span>{{prod.prodcutOfferPrice | currency:'INR'}}</span>
         </div>
+        <div class="buy"><i class="material-icons">add_shopping_cart</i></div>
       </div>
-      <div class="col-md-3">
-        <div class="wsk-cp-product">
-          <div class="wsk-cp-img"><img src="https://static.nike.com/a/images/t_default/f4e40d1c-1e7a-48cc-acce-fab5b858c93b/air-jordan-1-zoom-cmft-shoes-mDxHSk.png" alt="Product" class="img-responsive" /></div>
-          <div class="wsk-cp-text">
-            <div class="category">
-              <span>Add to Cart</span>
-            </div>
-            <div class="title-product">
-              <h3>My face not my heart</h3>
-            </div>
-            <div class="description-prod">
-              <p>Description Product tell me how to change playlist height size like 600px in html5 player. player good work now check this link</p>
-            </div>
-            <div class="card-footer">
-              <div class="wcf-left"><span class="price">Rp500.000</span></div>
-              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
-            </div>
+
+    </div>
+  </div>
+  <div class="inside">
+    <div class="icon"><i class="material-icons">info_outline</i></div>
+    <div class="contents">
+      <table>
+        <tr>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>{{prod.productDescription}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+</div> 
+
+
+<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<div class="wrapper-container">
+  <div class="wrapper">
+    <div class="container">
+      <div class="top">
+         <img src={{prod.imagePath}}/> --><img src="./assets/images/men/sports1.png">
+      <!-- </div>
+      <div class="bottom">
+        <div class="left">
+          <div class="details">
+            <h1 style="font-size: 15px;">{{ prod.productName }}</h1> -->
+            <!-- <h1 style="font-size: 15px;">Nike</h1>
+             <span style="text-decoration: line-through;">{{ prod.price | currency:'INR'}}</span> -->
+            <!-- <span style="text-decoration: line-through;">1000</span>
+             <span>{{prod.prodcutOfferPrice | currency:'INR'}}</span> -->
+            <!-- <span>800</span>
           </div>
-        </div>
+          <div class="buy"><i class="material-icons">add_shopping_cart</i></div>
+        </div> -->
+
+      <!-- </div>
+    </div>
+    <div class="inside">
+      <div class="icon"><i class="material-icons">info_outline</i></div>
+      <div class="contents">
+        <table>
+          <tr>
+            <th>Description</th>
+          </tr>
+          <tr> -->
+            <!-- <td>{{prod.productDescription}}</td> -->
+            <!-- <td>nice shoes</td>
+          </tr>
+        </table>
       </div>
-      <div class="col-md-3">
-        <div class="wsk-cp-product">
-          <div class="wsk-cp-img"><img src="https://static.nike.com/a/images/t_default/f4e40d1c-1e7a-48cc-acce-fab5b858c93b/air-jordan-1-zoom-cmft-shoes-mDxHSk.png" alt="Product" class="img-responsive" /></div>
-          <div class="wsk-cp-text">
-            <div class="category">
-              <span>Add to Cart</span>
-            </div>
-            <div class="title-product">
-              <h3>My face not my heart</h3>
-            </div>
-            <div class="description-prod">
-              <p>Description Product tell me how to change playlist height size like 600px in html5 player. player good work now check this link</p>
-            </div>
-            <div class="card-footer">
-              <div class="wcf-left"><span class="price">Rp500.000</span></div>
-              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="wsk-cp-product">
-          <div class="wsk-cp-img"><img src="https://static.nike.com/a/images/t_default/f4e40d1c-1e7a-48cc-acce-fab5b858c93b/air-jordan-1-zoom-cmft-shoes-mDxHSk.png" alt="Product" class="img-responsive" /></div>
-          <div class="wsk-cp-text">
-            <div class="category">
-              <span>Add to Cart</span>
-            </div>
-            <div class="title-product">
-              <h3>My face not my heart cvf ggf gfg g</h3>
-            </div>
-            <div class="description-prod">
-              <p>Description Product tell me how to change playlist height size like 600px in html5 player. player good work now check this link</p>
-            </div>
-            <div class="card-footer">
-              <div class="wcf-left"><span class="price">Rp500.000</span></div>
-              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    
-   
-  </div>
-</div>
-
-<!-- <div class="card" style="width: 18rem" *ngFor="let prod of productList">
-  <img class="card-img-top" src={{prod.imagePath}} alt="Card image cap" />
-  <div class="card-body">
-    <h5 class="card-title">{{prod.productName}}</h5>
-    <p class="card-text">
-      {{prod.productDescription}}
-    </p>
-    <a href="#" class="btn btn-primary">Add to Cart</a>
-</div>
-</div>
-<div id="toast"></div>
-<div id="toast-cart"></div>
-<div class="container">
-  <h1>E-Commerce Cards</h1>
-  <hr>
-  <br>
-  <div class="row">
-  <div class="col-lg-4">
-    <div class="card" style="width: 18rem;">
-      <span id="heart" class="heart"><i onclick="wishList()" class="fas fa-heart"></i></span>
-  <img src="https://images.unsplash.com/photo-1565208565380-02138793c3b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" class="first-image">
-  <div class="card-body">
-    <a href="#" onclick="addCart()">Add to cart</a>
-    <hr>
-
-      <h5 class="card-title">Black Pants</h5>
-
-  </div>
-</div>
-</div>
-      <div class="col-lg-4">
-    <div class="card" style="width: 18rem;">
-      <span id="heart-second" value="So" class="heart"><i onclick="wishList()" class="fas fa-heart"></i></span>
-  <img src="https://images.unsplash.com/photo-1549062572-544a64fb0c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="first-image">
-  <div class="card-body">
-    <a href="#" onclick="addCart()">Add to cart</a>
-    <hr>
-
-      <h5 class="card-title">T-shirt</h5>
-
-  </div>
-</div>
-</div>
-    <div class="col-lg-4">
-    <div class="card" style="width: 18rem;">
-      <span id="heart-third" class="heart"><i onclick="wishList()" class="fas fa-heart"></i></span>
-  <img src="https://images.unsplash.com/photo-1565279586461-293ae487de37?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" class="first-image">
-  <div class="card-body">
-    <a href="#" onclick="addCart()">Add to Cart</a>
-    <hr>
-
-      <h5 class="card-title">Pants</h5>
-
-  </div>
-</div>
-</div>
-  </div>
-</div>
-
- -->
-
+    </div>
+  </div> 
+  
+</div>   -->
