@@ -9,15 +9,13 @@ import { ProductCardComponent } from './product-card/product-card.component';
 const routes: Routes = [
   {path:'home',component:HomeComponent},
   {path:'product-card',component:ProductCardComponent},
+
 /*
   {path:'product-card',
-  loadChildren: () => 
+  loadChildren: () =>
   import('./product-card/product-card.component').then((m)=>m.ProductCardComponent)
   }*/
 
-
-
-  {path:'',redirectTo:'/', pathMatch:'full'},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent}
 
@@ -28,7 +26,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule 
-{ 
- 
+export class AppRoutingModule
+{
+
 }

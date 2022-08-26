@@ -1,32 +1,29 @@
 import { Injectable, OnInit } from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { IUser } from "./IUser";
 
-
 @Injectable({
-
-    providedIn:'root'
-
+  providedIn: "root",
 })
-
 export class UserServices implements OnInit {
+  constructor(private http: HttpClient) {}
 
+  baseUrl: string = "http://localhost:5000/api/";
+  public data: any = {};
 
+  ngOnInit(): void {}
 
-    constructor(private http:HttpClient){}
+  public fetchUserList(): Observable<IUser[]> {
+    return this.http.get<IUser[]>(`${this.baseUrl + "Users"}`);
+  }
+  public addUserData(data: any) {
+    const httpoptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json; charset=utf-8",
+      }),
+    };
 
-    baseUrl:string = "http://localhost:5000/api/"
-
-    ngOnInit(): void {
-
-    }
-
-    getAllOrderInfo():Observable<IUser[]>{
-
-        return this.http.get<IUser[]>(this.baseUrl+"Users");
-
-
-    }
-
+    return this.http.post(this.baseUrl + "Users", data, httpoptions);
+  }
 }

@@ -2,9 +2,7 @@
     background-color: #000000;
   }
  
-  a:hover{
-    color: #e88382;
-  }
+
 
   a{
     color: #fff;
@@ -15,5 +13,41 @@
   a:visited{
     color: #fff;
   }
+  #form-wrapper {
+    width: 50%;
+    height: 40px;
+  }
+
+  #navbarSupportedContent{
+    float:none;
+    
+    padding-left: 10vw;
+  }
+
+  @media screen and (max-width: 600px) { 
+    .topnav-centered a {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: none;
+    }
+  }
+  .icon{
+    size:20px;
+    color:red;
+    
+  }
+  .nav-link:hover{
+color:#ff5e14;
+  }
+
+  .btn:hover{
+    background-color: #ff5e14;
+    border: 1px solid white;
+     color: #000000;
+  }
   
-  
+
+  .bi:hover{
+    color: #ff5e14;
+  }
