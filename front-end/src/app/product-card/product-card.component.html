@@ -1,37 +1,33 @@
-<link
-  href="https://fonts.googleapis.com/icon?family=Material+Icons"
-  rel="stylesheet"
-/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 <div class="wrapper-container">
-<div class="wrapper" *ngFor="let prod of productList">
-  <div class="container" >
-    <div class="top">
-      <img src={{prod.imagePath}}/>
-    </div>
-    <div class="bottom">
-      <div class="left">
-        <div class="details">
-          <h1 style="font-size: 15px;">{{ prod.productName }}</h1>
-          <span style="text-decoration: line-through;">{{ prod.price | currency:'INR'}}</span>
-          <span>{{prod.prodcutOfferPrice | currency:'INR'}}</span>
+  <div class="wrapper" *ngFor="let prod of productList">
+    <div class="container">
+      <div class="top">
+        <img src={{prod.imagePath}} />
+      </div>
+      <div class="bottom">
+        <div class="left">
+          <div class="details">
+            <h1 style="font-size: 15px;">{{ prod.productName }}</h1>
+            <span style="text-decoration: line-through;">{{ prod.price | currency:'INR'}}</span>
+            <span>{{prod.productOfferPrice | currency:'INR'}}</span>
+          </div>
+          <div class="buy"><i class="material-icons">add_shopping_cart</i></div>
         </div>
-        <div class="buy"><i class="material-icons">add_shopping_cart</i></div>
+      </div>
+    </div>
+    <div class="inside">
+      <div class="icon"><i class="material-icons">info_outline</i></div>
+      <div class="contents">
+        <table>
+          <tr>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>{{prod.productDescription}}</td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>
-  <div class="inside">
-    <div class="icon"><i class="material-icons">info_outline</i></div>
-    <div class="contents">
-      <table>
-        <tr>
-          <th>Description</th>
-        </tr>
-        <tr>
-          <td>{{prod.productDescription}}</td>
-        </tr>
-      </table>
-    </div>
-  </div>
 </div>
-</div> 
-</div> 
