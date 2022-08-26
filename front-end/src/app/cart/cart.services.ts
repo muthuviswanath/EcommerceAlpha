@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from "@angular/core";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import { Observable } from "rxjs";
 import { ICart } from "./ICart";
 
@@ -22,12 +22,13 @@ export class CartServices implements OnInit {
 
     }
 
-    getAllCartInfo():Observable<ICart[]>{
-
-        return this.http.get<ICart[]>(this.baseUrl+"Carts");
-
-
+    getAllCartInfo(userId:number){
+      // console.log(cartid)
+        return this.http.get(this.baseUrl+"Carts/"+userId);
     }
 
+    public totalprice(){
+
+    }
 
 }
