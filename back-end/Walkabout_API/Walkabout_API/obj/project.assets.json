@@ -7332,23 +7332,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SakshiBansal\\.nuget\\packages\\": {},
+    "C:\\Users\\DevanshMesson\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SakshiBansal\\OneDrive - Kongsberg Digital AS\\Desktop\\Repo\\EcommerceAlpha\\back-end\\Walkabout_API\\Walkabout_API\\Walkabout_API.csproj",
+      "projectUniqueName": "C:\\My apps\\AngularApplications\\AngularApplications\\1.AngularProject\\EcommerceAlpha\\back-end\\Walkabout_API\\Walkabout_API\\Walkabout_API.csproj",
       "projectName": "Walkabout_API",
-      "projectPath": "C:\\Users\\SakshiBansal\\OneDrive - Kongsberg Digital AS\\Desktop\\Repo\\EcommerceAlpha\\back-end\\Walkabout_API\\Walkabout_API\\Walkabout_API.csproj",
-      "packagesPath": "C:\\Users\\SakshiBansal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SakshiBansal\\OneDrive - Kongsberg Digital AS\\Desktop\\Repo\\EcommerceAlpha\\back-end\\Walkabout_API\\Walkabout_API\\obj\\",
+      "projectPath": "C:\\My apps\\AngularApplications\\AngularApplications\\1.AngularProject\\EcommerceAlpha\\back-end\\Walkabout_API\\Walkabout_API\\Walkabout_API.csproj",
+      "packagesPath": "C:\\Users\\DevanshMesson\\.nuget\\packages\\",
+      "outputPath": "C:\\My apps\\AngularApplications\\AngularApplications\\1.AngularProject\\EcommerceAlpha\\back-end\\Walkabout_API\\Walkabout_API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\SakshiBansal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\DevanshMesson\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

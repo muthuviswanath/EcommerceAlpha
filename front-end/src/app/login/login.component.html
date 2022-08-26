@@ -8,17 +8,17 @@
  
   <h3 style="font-weight:bold">Login to your account.</h3>
 
-  <div *ngIf="showMessage">
+  <!-- <div *ngIf="showMessage">
     <h3 style = "margin-top:0px; float:right;">Login successful</h3>
-  </div>
+  </div> -->
 
-  <form [FormGroup] = "loginForm" (ngSubmit)="signupUser()">
+  <form [formGroup] = "loginForm" (ngSubmit)="loginauth()">
     
 
-    <input type="text" class="text" name="username" placeholder="Username" [formControl]="username" [(ngModel)]="UserName">
+    <input type="text" class="text" name="username" placeholder="Username" formControlName = "username">
     <span>Enter your Username</span>
     
-    <div [hidden]="username.valid || username.untouched" style="float:right; color:red">
+    <!-- <div [hidden]="username.valid || username.untouched" style="float:right; color:red">
       
       <div [hidden]="!username.hasError('minlength')">
         Username cannot be less than 5 characters!
@@ -28,22 +28,23 @@
         Username cannot be empty!
       </div>
 
-    </div>
+    </div> -->
 
 
-    <input type="password" class="text" name="username" placeholder="Password" [formControl]="password" [(ngModel)]="PassWord">
+    <input type="password" class="text" name="password" placeholder="Password" formControlName="password">
     <span>Enter your Password</span>
 
-    <div [hidden]="password.valid || password.untouched" style="float:right; color:red">
+    <!-- <div [hidden]="password.valid || password.untouched" style="float:right; color:red">
       <div [hidden]="!password.hasError('minlength')">
         Password cannot be less than 8 characters!
       </div>
       <div [hidden]="!password.hasError('required')">
         Password cannot be empty!
       </div>
-    </div>
+    </div> -->
 
-    <button class="signin" type="submit" [disabled]="!loginForm.valid">
+    <!-- [disabled]="!loginForm.valid -->
+    <button class="signin" type="submit">
        Log In
     </button>
 
