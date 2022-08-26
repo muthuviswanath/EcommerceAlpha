@@ -8,6 +8,7 @@ import { ProductServices } from './product.services';
 })
 export class ProductCardComponent implements OnInit {
   productList:IProduct[];
+  modalOpen = false;
   constructor(private service:ProductServices){}
 
   ngOnInit(): void {

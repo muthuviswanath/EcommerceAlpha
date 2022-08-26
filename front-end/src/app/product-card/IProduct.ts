@@ -5,6 +5,6 @@ export interface IProduct{
   imagePath:string;
   productDescription:string;
   productRating:number;
-  prodcutOfferPrice:number;
+  productOfferPrice:number;
   productCategory:string;
 }
