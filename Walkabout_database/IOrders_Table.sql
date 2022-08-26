@@ -6,7 +6,7 @@ INSERT INTO [dbo].[Orders]
            ,[ProductId]
            ,[OrderDate])
      VALUES
-           (2,8,'2022-08-22 12:12:14.0000000')
+           (2,5,'2022-08-22 12:12:14.0000000')
 		 
 GO
 

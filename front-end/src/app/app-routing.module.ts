@@ -11,7 +11,7 @@ const routes: Routes = [
   {path:'product-card',component:ProductCardComponent},
 /*
   {path:'product-card',
-  loadChildren: () => 
+  loadChildren: () =>
   import('./product-card/product-card.component').then((m)=>m.ProductCardComponent)
   }*/
 
@@ -28,7 +28,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule 
-{ 
- 
+export class AppRoutingModule
+{
+
 }
