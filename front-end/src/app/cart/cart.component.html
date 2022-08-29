@@ -1,64 +1,74 @@
 <html>
   <head>
-    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
-    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
 
   <body>
-
-    
-     <div class="container">
+    <h4 class=" display-5 text-center">Your Cart</h4>
+    <br/>
+    <h1 class="display-4 text-center" *ngIf="cartList.length === 0">
+       No items have been added in your cart!
+    </h1>
+    <div class="container" *ngIf="cartList.length > 0">
       <!-- Products Cart -->
       <div class="column1">
-      <h4>Your Cart</h4>
-      <table class="tablecart">
-        <tr *ngFor="let prd of prodList" class="cartrow">
-       
-          <td><img src="assets/images/s1.jpg" class="image"></td>
-          <td>
-            <p class="productname">{{prd.productName}}</p>
-            <p class="productdesc">Women's Shoes</p>
-            <p class="productdesc">Ghost Green/Pink Blast/Photo Blue/Black</p>
-            <p>Size: 2.5  Quantity: 1</p>
-          </td>
-          
-          <td>₹ 1,999</td>
-        
-        
-          <!-- <div class="fade_rule"></div> -->
-        </tr>
-          
 
-      </table>
+
+
+        <table class="tablecart">
+          <ng-content ></ng-content>
+          <tr *ngFor="let cart of cartList" class="cartrow">
+
+            <td><img src="{{ cart.product.imagePath }}" class="image" /></td>
+            <td>
+              <p class="productname">{{ cart.product.productName }}</p>
+
+              <p class="productdesc">{{ cart.product.productDesc }}</p>
+              <p>Size: 2.5 Quantity: 1</p>
+            </td>
+
+            <td>
+              <button  (click)="deleteCart(cart.cartId)" type="submit">Delete</button>
+            </td>
+            <td>{{ cart.CartTotal }}</td>
+            <td>{{sumtotal(cart)}}</td>
+            <!-- <div class="fade_rule"></div> -->
+          </tr>
+        </table>
       </div>
 
       <!-- Summary  -->
       <div class="column2">
         <h4>Summary</h4>
-        
+
         <table class="tablesummary">
           <tr>
             <td>Subtotal</td>
-            <td>₹ 12345</td>
+
           </tr>
           <tr>
             <td>Estimated Delivery & Handling</td>
             <td>₹ 0</td>
           </tr>
-          <div class="fade_rule"></div>  
-          
+          <div class="fade_rule"></div>
+
           <tr>
             <td>Total</td>
             <td>₹ 45677</td>
           </tr>
-          <div class="fade_rule"></div>   
-
-         
+          <div class="fade_rule"></div>
         </table>
         <button class="checkout">Checkout</button>
-
       </div>
-     </div>
+    </div>
   </body>
-    
 </html>
