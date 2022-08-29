@@ -25,8 +25,10 @@ export class ProductServices implements OnInit {
     getAllEmpInfo():Observable<IProduct[]>{
 
         return this.http.get<IProduct[]>(this.baseUrl+"Products");
-
-
+    }
+    SearchProduct(SearchString : string) : Observable<IProduct[] >
+    {  
+        return this.http.get<IProduct[]>(this.baseUrl+ 'Products/' + SearchString);
     }
 
 }

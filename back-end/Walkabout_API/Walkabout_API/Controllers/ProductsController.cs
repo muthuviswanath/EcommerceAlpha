@@ -28,7 +28,7 @@ namespace Walkabout_API.Controllers
         }
 
         // GET: api/Products/5
-        [HttpGet("{id}")]
+   /*     [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
             var product = await _context.Products.FindAsync(id);
@@ -39,7 +39,7 @@ namespace Walkabout_API.Controllers
             }
 
             return product;
-        }
+        }*/
 
         // PUT: api/Products/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
@@ -103,5 +103,17 @@ namespace Walkabout_API.Controllers
         {
             return _context.Products.Any(e => e.ProductId == id);
         }
+
+        [HttpGet("{SearchString}")]
+        public async Task<ActionResult<IEnumerable<Product>>> SearchProduct(string SearchString)
+        {
+            return await _context.Products.Where(b =>
+                b.ProductName.Contains(SearchString) ||
+                b.ProductCategory.Contains(SearchString) ||
+                b.ProductDescription.Contains(SearchString)).ToListAsync();
+            
+        }
+
+
     }
 }

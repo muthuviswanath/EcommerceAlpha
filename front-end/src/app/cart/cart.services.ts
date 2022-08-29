@@ -5,13 +5,10 @@ import { ICart } from "./ICart";
 
 
 @Injectable({
-
     providedIn:'root'
-
 })
 
 export class CartServices implements OnInit {
-
 
 
     constructor(private http:HttpClient){}
