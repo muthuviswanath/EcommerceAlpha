@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./banner.component.css']
 })
 export class BannerComponent implements OnInit {
+  public imgSrc ='';
+  // public srcs = [];
 
-  constructor() { }
+  // constructor() { }
 
   ngOnInit(): void {
   }
+
+  // changeImage() {
+  //  imgSrc = '';
+  // }
 
 }
