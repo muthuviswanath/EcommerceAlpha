@@ -2,6 +2,8 @@
         <a class="navbar-brand" href="#">
             <img src="./assets/images/logo/walkaboutText.png" style="height: 30px;" alt="Walkabout">
             </a>
+        
+        <p>Hello {{sessionStorage.getItem('Username')}}</p>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -15,6 +17,7 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/mods">Mods</a>
                 </li>
+               
 
 
                
@@ -32,10 +35,11 @@
 
 
                   <li class="nav-item">
-                    <a class="nav-link" routerLink="/signup">Sign Up</a>
+                    <a class="nav-link" routerLink="/signup" >Sign Up</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" routerLink="/login">Log In</a>
+                  <a class="nav-link" routerLink="/login" *ngIf="!sessionStorage.getItem('Username')">Log In</a>
+                  <a class="nav-link" routerLink="/home" *ngIf="sessionStorage.getItem('Username')" (click)="logout()">Log Out</a>
               </li>
 
             </ul>

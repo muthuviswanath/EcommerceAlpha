@@ -26,7 +26,7 @@ export class ProductServices implements OnInit {
 
         return this.http.get<IProduct[]>(this.baseUrl+"Products");
     }
-    SearchProduct(SearchString : string) : Observable<IProduct[] >
+    SearchProduct(SearchString : string) : Observable<IProduct[]>
     {  
         return this.http.get<IProduct[]>(this.baseUrl+ 'Products/' + SearchString);
     }

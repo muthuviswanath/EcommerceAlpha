@@ -34,13 +34,16 @@ export class LoginComponent implements OnInit
            alert("Login Un-Successful");
          }
          else{
-           alert("Login SuccessFull");
+           alert("Login SuccessFull,");
+           sessionStorage.setItem('Username',this.loginForm.value.username);
+           
          }
        }
        
      );
    } 
 
+   
    //Pending
 
   //  get Empname() : FormControl

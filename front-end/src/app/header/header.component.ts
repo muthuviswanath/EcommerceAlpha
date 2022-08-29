@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-header',
@@ -8,8 +9,21 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   constructor() { }
-
+  public sessionStorage = sessionStorage;
   ngOnInit(): void {
   }
+  logout():void
+  {
+   console.log("Hi logout");
+   
+   sessionStorage.removeItem('Username');
+
+  
+   sessionStorage.clear(); 
+   
+   sessionStorage = sessionStorage;
+  }
+
+
 
 }
