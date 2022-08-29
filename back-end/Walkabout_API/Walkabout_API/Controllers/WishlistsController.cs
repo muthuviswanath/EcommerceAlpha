@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Walkabout_API.Dto;
 using Walkabout_API.Models;
 
 namespace Walkabout_API.Controllers
@@ -40,6 +41,19 @@ namespace Walkabout_API.Controllers
             }
 
             return wishlist;
+        }
+
+        [HttpGet("User/{id}")]
+        public async Task<ActionResult<IEnumerable<Wishlistdto>>> GetWishlistOfUser(int id)
+        {
+            var usersWishlist = _context.Wishlists.Where(x => x.UserId == id).Include(c => c.User).Include(c => c.Product).Select(x =>
+            new Wishlistdto
+            {
+                UserId = x.UserId,
+                Product = x.Product
+            });
+            var value = await usersWishlist.ToListAsync();
+            return value;
         }
 
         // PUT: api/Wishlists/5

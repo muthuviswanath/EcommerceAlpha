@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Walkabout_API.Dto;
 using Walkabout_API.Models;
 
 namespace Walkabout_API.Controllers
@@ -14,10 +16,12 @@ namespace Walkabout_API.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly WalkaboutContext _context;
+        private readonly IMapper _mapper;
 
-        public ProductsController(WalkaboutContext context)
+        public ProductsController(WalkaboutContext context,IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // GET: api/Products
@@ -27,19 +31,17 @@ namespace Walkabout_API.Controllers
             return await _context.Products.ToListAsync();
         }
 
-        // GET: api/Products/5
-   /*     [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
-        {
-            var product = await _context.Products.FindAsync(id);
+        // get: api/products/5
+             [HttpGet("{id}")]
+             public async Task<ActionResult<Product>> GetProduct(int id)
+             {
+                
+                // var product = await _context.Products.FindAsync(id);
 
-            if (product == null)
-            {
-                return NotFound();
-            }
+                 return await _context.Products.FindAsync(id);
 
-            return product;
-        }*/
+
+        }
 
         // PUT: api/Products/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
