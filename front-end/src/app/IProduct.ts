@@ -1,11 +1,11 @@
-export interface IProduct{
-  productId:number;
+export interface IProduct
+{
   productName:string;
   quantity:number;
   price:number;
   imagePath:string;
   productDescription:string;
   productRating:number;
-  productOfferPrice:number;
+  prodcutOfferPrice:number;
   productCategory:string;
 }

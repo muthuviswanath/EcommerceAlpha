@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HimalayaKaushik\\OneDrive - Kongsberg Digital AS\\Desktop\\ASP.NET\\Walkabout_API\\Walkabout_API\\Walkabout_API.csproj": {}
+    "C:\\My apps\\AngularApplications\\AngularApplications\\1.AngularProject\\EcommerceAlpha\\back-end\\Walkabout_API\\Walkabout_API\\Walkabout_API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HimalayaKaushik\\OneDrive - Kongsberg Digital AS\\Desktop\\ASP.NET\\Walkabout_API\\Walkabout_API\\Walkabout_API.csproj": {
+    "C:\\My apps\\AngularApplications\\AngularApplications\\1.AngularProject\\EcommerceAlpha\\back-end\\Walkabout_API\\Walkabout_API\\Walkabout_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HimalayaKaushik\\OneDrive - Kongsberg Digital AS\\Desktop\\ASP.NET\\Walkabout_API\\Walkabout_API\\Walkabout_API.csproj",
+        "projectUniqueName": "C:\\My apps\\AngularApplications\\AngularApplications\\1.AngularProject\\EcommerceAlpha\\back-end\\Walkabout_API\\Walkabout_API\\Walkabout_API.csproj",
         "projectName": "Walkabout_API",
-        "projectPath": "C:\\Users\\HimalayaKaushik\\OneDrive - Kongsberg Digital AS\\Desktop\\ASP.NET\\Walkabout_API\\Walkabout_API\\Walkabout_API.csproj",
-        "packagesPath": "C:\\Users\\HimalayaKaushik\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HimalayaKaushik\\OneDrive - Kongsberg Digital AS\\Desktop\\ASP.NET\\Walkabout_API\\Walkabout_API\\obj\\",
+        "projectPath": "C:\\My apps\\AngularApplications\\AngularApplications\\1.AngularProject\\EcommerceAlpha\\back-end\\Walkabout_API\\Walkabout_API\\Walkabout_API.csproj",
+        "packagesPath": "C:\\Users\\DevanshMesson\\.nuget\\packages\\",
+        "outputPath": "C:\\My apps\\AngularApplications\\AngularApplications\\1.AngularProject\\EcommerceAlpha\\back-end\\Walkabout_API\\Walkabout_API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\HimalayaKaushik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DevanshMesson\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -79,8 +79,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -92,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -103,5 +103,13 @@ namespace Walkabout_API.Controllers
         {
             return _context.Users.Any(e => e.UserId == id);
         }
+
+        [HttpPost("LoginUser")]
+        public IActionResult login(Login user)
+        {
+            var userExists = _context.Users.Where(u => u.UserName == user.UserName && u.Password == user.Password).FirstOrDefault();
+            if (userExists != null) return Ok("Success");
+            return Ok("Failure");
+        }
     }
 }

@@ -22,10 +22,12 @@ export class CartServices implements OnInit {
 
     }
 
-    getAllCartInfo():Observable<ICart[]>{
+    getAllCartInfo(userId:number){
+      // console.log(cartid)
+        return this.http.get(this.baseUrl+"Carts/"+userId);
+    }
 
-        return this.http.get<ICart[]>(this.baseUrl+"Carts");
-
+    public totalprice(){
 
     }
 
