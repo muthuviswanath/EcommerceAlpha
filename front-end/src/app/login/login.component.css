@@ -1,7 +1,7 @@
 body, .signin {
     /* background-color: #d3d3d3;   */
    font-family: 'Montserrat', sans-serif;
-   color: #fff;
+   color: #ff5e14;
    font-size: 14px;
    letter-spacing: 1px;
    }
@@ -26,13 +26,10 @@ body, .signin {
    padding-top: 30px;
    }
 
-  
-
-
    span {
    /* text-transform: uppercase; */
-   font-size: 15px;
-   opacity: 0.7; 
+   font-size: 20px;
+   /* opacity: 0.7;  */
    display: inline-block;
    position: relative;
    top: -60px;
@@ -84,10 +81,9 @@ body, .signin {
    }
 
    .signin {
-   background-color: #1161ed;
-   color: #FFF;
+   background-color: #ffffff;
+   color: #ff5e14;
    width: 65%;
-   padding: 10px 20px;
    display: block;
    height: 39px;
    margin-left: auto;
@@ -98,6 +94,8 @@ body, .signin {
    border: none;
    text-transform: uppercase;
    justify-content: center;
+   font-style: bold;
+   font-size: 20px;
    }
 
    .signin:hover {
