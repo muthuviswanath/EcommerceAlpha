@@ -24,17 +24,29 @@ export class ProductCardComponent implements OnInit {
   ProductSearch = new FormGroup
   (
    {
-     SearchString : new FormControl()
+     SearchString : new FormControl(),
+     lowprice : new FormControl(),
+     highprice : new FormControl(),
+     sortby: new FormControl()
    }
   );
 
   Search():void
   {
-    this.service.SearchProduct(this.ProductSearch.value.SearchString)
-    .subscribe
-    (
-      res => this.productList = res
-    );
+    
+    this.service.SearchProduct(this.ProductSearch.value.SearchString, 
+                                  this.ProductSearch.value.lowprice, 
+                                  this.ProductSearch.value.highprice,this.ProductSearch.value.sortby)
+                            .subscribe
+                            (
+                              res => this.productList = res
+                            );
+  }
+
+
+  getProducts() 
+  {
+    return this.productList.filter((product)=> product.productCategory.includes(sessionStorage.getItem('ProductCategory')));
   }
 
 }

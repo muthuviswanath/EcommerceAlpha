@@ -1,13 +1,36 @@
 <br>
 <form  [formGroup] = "ProductSearch" (ngSubmit)="Search()" class="form-inline my-2 my-lg-0" style="margin-left: 5%; ;display: flex;">
   <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search" formControlName = "SearchString">
-  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin-left:5px ;border:1px solid #ff5e14;color: #ff5e14;"><span>Search</span></button>
+  
+  <input class="form-control mr-sm-2" type="search" placeholder="Low Price" aria-label="Search" formControlName = "lowprice">
+  <input class="form-control mr-sm-2" type="search" placeholder="High Price" aria-label="Search" formControlName = "highprice">
+  
+  
+  <label for="sortby">Sort By:</label>
+  <select formControlName = "sortby">
+    <option value="AscendingName" >Name: Ascending</option>
+    <option value="DescendingName"  >Name: Descending</option>
+    <option value="AscendingPrice"  >Price: Low to High</option>
+    <option value="DescendingPrice" >Price: High to Low </option>
+  </select>
+
+  
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin-left:5px ;border:1px solid #ff5e14; color: #ff5e14;"><span>Search</span></button>
+
+   
+  
+
+   
 </form>
+
+
+
+
 <br>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 <div class="wrapper-container">
-  <div class="wrapper" *ngFor="let prod of productList">
-    <div class="container">
+  <div class="wrapper" *ngFor="let prod of getProducts()">
+    <div class="container" >
       <div class="top">
         <img src={{prod.imagePath}} />
       </div>

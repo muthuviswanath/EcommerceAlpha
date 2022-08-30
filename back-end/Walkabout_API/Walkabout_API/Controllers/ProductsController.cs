@@ -77,6 +77,8 @@ namespace Walkabout_API.Controllers
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
+            System.Diagnostics.Debug.WriteLine("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
+
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
 
@@ -98,22 +100,60 @@ namespace Walkabout_API.Controllers
 
             return NoContent();
         }
-
+       
         private bool ProductExists(int id)
         {
             return _context.Products.Any(e => e.ProductId == id);
         }
 
-        [HttpGet("{SearchString}")]
-        public async Task<ActionResult<IEnumerable<Product>>> SearchProduct(string SearchString)
+       
+       
+
+        [HttpGet("{SearchString}/{lowprice}/{highprice}/{sortby}")]
+        public async Task<ActionResult<IEnumerable<Product>>> SearchProduct(string SearchString, int lowprice, int highprice, string sortby)
         {
-            return await _context.Products.Where(b =>
-                b.ProductName.Contains(SearchString) ||
-                b.ProductCategory.Contains(SearchString) ||
-                b.ProductDescription.Contains(SearchString)).ToListAsync();
             
+            System.Diagnostics.Debug.WriteLine(SearchString);
+            System.Diagnostics.Debug.WriteLine(lowprice);
+            System.Diagnostics.Debug.WriteLine(highprice);
+            System.Diagnostics.Debug.WriteLine(sortby);
+
+
+            IQueryable<Product> Products;
+            if (SearchString=="not_defined" && lowprice==0 && highprice==1000000)
+            {
+                Products  = _context.Products.Where(b => b.Price.CompareTo(lowprice) >= 0 && b.Price.CompareTo(highprice) <= 0);
+            }
+            else if(SearchString == "not_defined")
+            {
+               Products = _context.Products.Where(b => b.Price.CompareTo(lowprice) >= 0 && b.Price.CompareTo(highprice) <= 0);
+            }
+            else if(lowprice == 0 && highprice == 1000000)
+            {
+                Products = _context.Products.Where(b =>
+                                          b.ProductName.Contains(SearchString) ||
+                                          b.ProductCategory.Contains(SearchString) ||
+                                          b.ProductDescription.Contains(SearchString)
+                                         );
+            }
+            else
+            {
+                Products = _context.Products.Where(b =>
+                                                       (b.ProductName.Contains(SearchString) ||
+                                                       b.ProductCategory.Contains(SearchString) ||
+                                                       b.ProductDescription.Contains(SearchString)) &&
+                                                       (b.Price.CompareTo(lowprice) >= 0 && b.Price.CompareTo(highprice) <= 0)
+                                                   );
+            }
+
+            if (sortby == "AscendingName") return await Products.OrderBy(name => name.ProductName).ToListAsync();
+            else if (sortby == "DescendingName") return await Products.OrderByDescending(name => name.ProductName).ToListAsync();
+            else if (sortby == "AscendingPrice") return await Products.OrderBy(name => name.Price).ToListAsync();
+            else if (sortby == "DescendingPrice") return await Products.OrderByDescending(name => name.Price).ToListAsync();
+            else return await Products.ToListAsync();
         }
+       
 
-
+    
     }
 }

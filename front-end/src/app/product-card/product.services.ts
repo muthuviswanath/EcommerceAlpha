@@ -26,9 +26,25 @@ export class ProductServices implements OnInit {
 
         return this.http.get<IProduct[]>(this.baseUrl+"Products");
     }
-    SearchProduct(SearchString : string) : Observable<IProduct[] >
+    SearchProduct(SearchString : string, lowprice: number, highprice : number, sortby:string) : Observable<IProduct[] >
     {  
-        return this.http.get<IProduct[]>(this.baseUrl+ 'Products/' + SearchString);
+        if((lowprice==null && highprice==null) || (lowprice==0 && highprice==0))
+        {
+            lowprice=0;
+            highprice=1000000;
+        }
+        if(SearchString==null || SearchString=="")
+        {
+            SearchString="not_defined";
+        }
+        if(sortby==null || sortby=="")
+        {
+            sortby="not_defined";
+        }
+        return this.http.get<IProduct[]>(`http://localhost:5000/api/Products/${SearchString}/${lowprice}/${highprice}/${sortby}`);
+
+        
+        
     }
 
 }

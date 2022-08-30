@@ -9,7 +9,13 @@ export class CategoryComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+  }
+
+  SetSession(category:string):void
+  {
+    sessionStorage.setItem('ProductCategory',category);
   }
 
 }
