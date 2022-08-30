@@ -11,16 +11,17 @@ import { ProductServices } from '../product-card/product.services';
   styleUrls: ['./wishlist.component.css']
 })
 export class WishlistComponent implements OnInit {
-  wishList:IWishlist[];
-  constructor(private service:WishlistServices){}
+  userid :number = 1;
+  wishList:any;
+  constructor(private Wishlistservice:WishlistServices){}
 
   ngOnInit(): void {
+    this.Wishlistservice.getAllWishlistInfo(this.userid).subscribe((res) => {
+      console.log(res);
+      this.wishList=res;
+     });
 
-    this.service.getAllWishlistInfo().subscribe(
 
-      res => this.wishList = res
-
-    );
     }
 
 

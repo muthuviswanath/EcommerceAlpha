@@ -12,21 +12,15 @@ import { IWishlist } from "./IWishlist";
 
 export class WishlistServices implements OnInit {
 
+  constructor(private http: HttpClient) {}
 
+  baseUrl: string = "http://localhost:5000/api/";
 
-    constructor(private http:HttpClient){}
+  ngOnInit(): void {}
 
-    baseUrl:string = "http://localhost:5000/api/"
-
-    ngOnInit(): void {
-
-    }
-
-    getAllWishlistInfo():Observable<IWishlist[]>{
-
-        return this.http.get<IWishlist[]>(this.baseUrl+"Wishlists");
-
-
-    }
+  getAllWishlistInfo(userid) {
+    // console.log(cartid)
+    return this.http.get(this.baseUrl + "Wishlists/User/" + userid);
+  }
 
 }

@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Walkabout_API.Dto;
 using Walkabout_API.Models;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Walkabout_API.Controllers
 {
@@ -22,12 +25,31 @@ namespace Walkabout_API.Controllers
 
         // GET: api/Carts
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Cart>>> GetCarts()
+        public async Task<ActionResult<IEnumerable<Cartdto>>> GetCarts()
         {
-            return await _context.Carts.ToListAsync();
+            var test = _context.Carts.Include(c => c.User).Include(c => c.Product).Select(x => new Cartdto
+            {
+
+       
+                CartTotal = x.CartTotal,
+
+                UserName = x.User.UserName,
+
+                Address = x.User.Address,
+
+                Product = x.Product
+
+            });
+
+            var value = await test.ToListAsync();
+
+            return value;
+
         }
+    
 
         // GET: api/Carts/5
+        
         [HttpGet("{id}")]
         public async Task<ActionResult<Cart>> GetCart(int id)
         {
@@ -40,6 +62,27 @@ namespace Walkabout_API.Controllers
 
             return cart;
         }
+
+
+
+        [HttpGet("User/{id}")]
+        public async Task<ActionResult<IEnumerable<Cartdto>>> GetCartOfUser(int id)
+        {
+            var usersCart = _context.Carts.Where(x => x.UserId == id).Include(c => c.User).Include(c => c.Product).Select(x =>
+            new Cartdto
+            {
+                CartTotal = x.CartTotal,
+                UserName = x.User.UserName,
+                UserId = x.UserId,
+                CartId=x.CartId,
+                Address = x.User.Address,
+                Product = x.Product
+            });
+            var value = await usersCart.ToListAsync();
+            return value;
+        }
+
+
 
         // PUT: api/Carts/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
@@ -87,7 +130,7 @@ namespace Walkabout_API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCart(int id)
         {
-            var cart = await _context.Carts.FindAsync(id);
+            var cart = await _context.Carts.Include(c=>c.User).Include(c=>c.Product).FirstOrDefaultAsync(c =>c.CartId == id);
             if (cart == null)
             {
                 return NotFound();

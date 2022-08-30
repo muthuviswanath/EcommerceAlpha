@@ -1,8 +1,64 @@
+<html>
+  <head>
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body>
+
+
+     <div class="container">
+      <!-- Products Cart -->
+      <div class="column1">
+      <h4>Your Cart</h4>
+      <table class="tablecart">
+        <tr *ngFor="let wishlist of wishList" class="cartrow">
+
+          <td><img src={{wishlist.product.imagePath}} class="image"></td>
+          <td>
+            <p class="productname">{{wishlist.product.productName}}</p>
+
+            <p class="productdesc">{{wishlist.product.productDesc}}</p>
+            <p>Size: 2.5  Quantity: 1</p>
+          </td>
 
 
 
-<!--
-<div *ngFor="let wishlist of wishList">
-  <div>{{productList[wishlist.productId].name}}</div>
 
-</div> -->
+          <!-- <div class="fade_rule"></div> -->
+        </tr>
+
+
+      </table>
+      </div>
+
+      <!-- Summary  -->
+      <div class="column2">
+        <h4>Summary</h4>
+
+        <table class="tablesummary">
+          <tr>
+            <td>Subtotal</td>
+            <td>₹ 12345</td>
+          </tr>
+          <tr>
+            <td>Estimated Delivery & Handling</td>
+            <td>₹ 0</td>
+          </tr>
+          <div class="fade_rule"></div>
+
+          <tr>
+            <td>Total</td>
+            <td>₹ 45677</td>
+          </tr>
+          <div class="fade_rule"></div>
+
+
+        </table>
+        <button class="checkout">Checkout</button>
+
+      </div>
+     </div>
+  </body>
+
+</html>

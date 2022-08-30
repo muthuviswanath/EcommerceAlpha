@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Walkabout_API.Helpers;
 using Walkabout_API.Models;
 
 namespace Walkabout_API
@@ -29,6 +30,7 @@ namespace Walkabout_API
         {
 
             services.AddControllers();
+            services.AddAutoMapper(typeof(Mapping));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Walkabout_API", Version = "v1" });
