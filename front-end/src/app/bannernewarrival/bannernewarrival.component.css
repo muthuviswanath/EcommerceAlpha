@@ -10,6 +10,7 @@ body {
   font-family: "Lato", sans-serif;
   text-transform: uppercase;
   text-align: center;
+  background-color: black;
 }
 
 #container {
@@ -80,7 +81,7 @@ button, .dot {
   width: 95%;
   height: 70px;
   /* background: linear-gradient(to bottom right, #B0DB7D 40%, #99DBB4 100%); */
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(-45deg, #ff5e14 0%, #ca7f29 29%, #000000 67%, #e6edc8);
   border-radius: 20px;
   box-shadow: 5px 5px 20px rgba(203, 205, 211, 0.1);
   perspective: 40px;

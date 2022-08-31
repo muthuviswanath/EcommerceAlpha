@@ -1,0 +1,165 @@
+<!-- <table style="color:white">
+    <tr>
+        <th>Prod Name</th>
+        <th>Prod Quantity</th>
+        <th>Prod Price</th>
+        <th>Prod Image Path</th>
+        <th>Prod Description</th>
+        <th>Prod rating</th>
+        <th>Prod Offer Price</th>
+        <th>Prod Category</th>
+    </tr>
+    <tr *ngFor="let prod of productList">
+    
+        <td>{{prod.productName}}</td>
+        <td>{{prod.quantity}}</td>
+        <td>{{prod.price}}</td>
+        <td>{{prod.imagePath}}</td>
+        <td>{{prod.productDescription}}</td>
+        <td>{{prod.productRating}}</td>
+        <td>{{prod.productOfferPrice}}</td>
+        <td>{{prod.productCategory}}</td>
+        <td><input type="button" class="btn btn-info" value="update" (click)="populate(prod)"></td>
+        <td><input type="button" class="btn btn-danger" value="delete" (click)="deleteProduct(prod.productId)"></td>
+        
+    </tr>
+</table>
+
+
+<br>
+<br><br>
+<form #form="ngForm"  (ngSubmit)="onSubmitAdd()" style="color:white">
+    <div>
+      <label for="productname">Product Name</label>
+      <input name="productname" type="text" [(ngModel)]="product.productName">
+    </div>
+
+     <div>
+        <label for="productqty">Product Qty</label>
+        <input name="productqty" type="text" [(ngModel)]="product.quantity">
+     </div>
+
+    <div>
+        <label for="productprice">Product Price</label>
+        <input name="productprice" type="text" [(ngModel)]="product.price">
+    </div>
+
+    <div>
+        <label for="productimagepath">Product Image Path</label>
+        <input name="productimagepath" type="text" [(ngModel)]="product.imagePath">
+    </div>
+
+    <div>
+        <label for="productdesc">Product Description</label>
+        <input name="productdesc" type="text" [(ngModel)]="product.productDescription">
+    </div>
+
+    <div>
+        <label for="productrating">Product Rating</label>
+        <input name="productrating" type="text" [(ngModel)]="product.productRating">
+    </div>
+    <div>
+        <label for="productofferprice">Product OfferPrize</label>
+        <input name="productofferprice" type="text" [(ngModel)]="product.productOfferPrice">
+    </div>
+    <div>
+        <label for="productcategory">Product Category</label>
+        <input  name="productcategory" type="text" [(ngModel)]="product.productCategory">
+    </div>
+  <div>
+      
+          <input type="submit" value="Update Employee" class="btn btn-primary">
+     
+    </div>
+
+  
+</form>  -->
+
+
+
+
+
+<table style="color:white; border: 1px solid white;" >
+    <tr style="border: 1px solid white; padding: 5px;">
+        <th style="padding-left: 10px; text-align: center;">Prod Name</th>
+        <th style="border-left: 1px solid white; text-align: center;">Prod Quantity</th>
+        <th style="border-left: 1px solid white; text-align: center;">Prod Price</th>
+        <th style="border-left: 1px solid white; text-align: center;">Prod Image Path</th>
+        <th style="border-left: 1px solid white; text-align: center;">Prod Description</th>
+        <th style="border-left: 1px solid white; text-align: center;">Prod rating</th>
+        <th style="border-left: 1px solid white; text-align: center;">Prod Offer Price</th>
+        <th style="border-left: 1px solid white; text-align: center;">Prod Category</th>
+        <th style="border-left: 1px solid white; text-align: center; ">Action</th>
+    </tr>
+    <tr *ngFor="let prod of productList" style="border: 1px solid white; padding: 5px;">
+    
+        <td style="padding-left: 10px;">{{prod.productName}}</td>
+        <td style="border-left: 1px solid white; text-align: center;">{{prod.quantity}}</td>
+        <td style="border-left: 1px solid white; text-align: center;">{{prod.price}}</td>
+        <td style="border-left: 1px solid white; text-align: center;">{{prod.imagePath}}</td>
+        <td style="border-left: 1px solid white; text-align: center;">{{prod.productDescription}}</td>
+        <td style="border-left: 1px solid white; text-align: center;">{{prod.productRating}}</td>
+        <td style="border-left: 1px solid white; text-align: center;">{{prod.productOfferPrice}}</td>
+        <td style="border-left: 1px solid white; text-align: center;">{{prod.productCategory}}</td>
+        <td style="border-left: 1px solid white; text-align: center;"><input type="button" class="btnfunction" value="Update" (click)="populate(prod)"></td>
+        <td style="border-right: 1px solid white; text-align: center;"><input type="button" class="btn btn-danger" value="Delete" (click)="deleteProduct(prod.productId)"></td>
+        
+    </tr>
+</table>
+<br><br><br>
+<div style="text-align: center; border-bottom: 2px solid #d8d8d8;">
+    <h3 style="color: #ff5e14;"> Add Product</h3>
+</div>
+<br>
+
+<div style="width: 100%; margin: 0 auto;border: 1px solid red;display: flex;">
+ <form #form="ngForm"  (ngSubmit)="onSubmitAdd()" style="color: #ff5e14;width: 100%; margin: 0 auto;">
+ <div style="width: 50%; margin: 0 auto; border: 1px solid red; ">
+    <div>
+      <label for="productname" style="color: #ff5e14;">Product Name</label>
+      <br>
+      <input name="productname" type="text" [(ngModel)]="product.productName" style="border:2px solid #d8d8d8">
+   </div>
+    <br>
+   <div>
+        <label for="productqty">Product Qty</label>
+        <br>
+        <input name="productqty" type="text" [(ngModel)]="product.quantity">
+     </div>
+     <br>
+    <div>
+        <label for="productprice">Product Price</label>
+        <br>
+        <input name="productprice" type="text" [(ngModel)]="product.price">
+    </div>
+    <br>
+    <div>
+        <label for="productimagepath">Product Image Path</label> <br>
+        <input name="productimagepath" type="text" [(ngModel)]="product.imagePath">
+    </div>
+    <br>
+    <div>
+        <label for="productdesc">Product Description</label> <br>
+        <input name="productdesc" type="text" [(ngModel)]="product.productDescription">
+    </div>
+    <br>
+    <div>
+        <label for="productrating">Product Rating</label> <br>
+        <input name="productrating" type="text" [(ngModel)]="product.productRating">
+    </div> <br>
+    <div>
+        <label for="productofferprice">Product OfferPrize</label> <br>
+        <input name="productofferprice" type="text" [(ngModel)]="product.productOfferPrice">
+    </div> <br>
+    <div>
+        <label for="productcategory">Product Category</label> <br>
+        <input  name="productcategory" type="text" [(ngModel)]="product.productCategory">
+    </div> 
+
+          <input type="submit" value="Update Employee" class="btnfunction">
+     
+
+</div>
+  
+</form>  
+</div>

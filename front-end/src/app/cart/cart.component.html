@@ -1,107 +1,126 @@
+<h4 class="display-5 text-center">Your Cart</h4>
 
+<br />
 
+<h1 class="display-4 text-center" *ngIf="cartList.length === 0">
+  No items have been added in your cart!
+</h1>
 
- 
-  <h4 class=" display-5 text-center">Your Cart</h4>
-
-    <br/>
-
-    <h1 class="display-4 text-center" *ngIf="cartList.length === 0">
-
-       No items have been added in your cart!
-
-    </h1>
-
-    <div class="container" *ngIf="cartList.length > 0">
- 
-   <!-- Products Cart -->
-   <div class="column1">
-   <h4 style="text-align:center;">Your Cart</h4>
-   <!-- <table class="tablecart">
+<div class="container" *ngIf="cartList.length > 0">
+  <!-- Products Cart -->
+  <div class="column1">
+    <h4 style="text-align: center">Your Cart</h4>
+    <!-- <table class="tablecart">
      <tr *ngFor="let prd of prodList" class="cartrow">
-    
        <td><img src="assets/images/s1.jpg" class="image"></td>
        <td>
          <p class="productname">{{prd.productName}}</p>
          <p class="productdesc">Women's Shoes</p>
          <p class="productdesc">Ghost Green/Pink Blast/Photo Blue/Black</p>
          <p>Size: 2.5  Quantity: 1</p>
-       </td>
-       
+       </td> 
        <td>₹ 1,999</td> -->
-     
-     
-       <!-- <div class="fade_rule"></div> -->
-     <!-- </tr>
-       
-
+    <!-- <div class="fade_rule"></div> -->
+    <!-- </tr>
    </table>
    </div> -->
 
+    <table class="tablecart">
+      <tr class="cartrow" *ngFor="let cart of cartList">
+        <td>
+          <img src="{{ cart.product.imagePath }}" class="image" />
+          <p class="productname">{{ cart.product.productName }}</p>
 
-   <table class="tablecart">
-     <tr class="cartrow" *ngFor="let cart of cartList">
-    
-       <td><img src="{{cart.product.imagePath}}" class="image">
-         <p class="productname">{{cart.product.productName}}</p>
-         
-         <p class="productdesc">{{cart.product.productDescription}</p>
-         <p>Size: 2.5</p>
-       </td>
-       <td>
-         <p style="padding-left: 25px;">Quantity</p>
-             <p>
-               <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom:4px" width="25" height="22" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
-               <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-               <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-             </svg>
-           
+          <p class="productdesc">{{cart.product.productDescription}</p>
+          <p>Size: 2.5</p>
+        </td>
+        <td>
+          <p style="padding-left: 25px">Quantity</p>
+          <p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              style="margin-bottom: 4px"
+              width="25"
+              height="22"
+              fill="currentColor"
+              class="bi bi-plus-square"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+              />
+              <path
+                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+              />
+            </svg>
 
-           <span>
-             <input type="text" class="first" autocomplete="off"/>
-           </span>
-           <svg xmlns="http://www.w3.org/2000/svg" style="margin-bottom:4px" width="25" height="22" fill="currentColor" class="bi bi-dash-square" viewBox="0 0 16 16">
-             <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-             <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
-           </svg>
-           </p>
-       </td>
-       
-       <td><button  (click)="deleteCart(cart.cartId)" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-         <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-       </svg></button></td>
-     
-     
-      
-     </tr>
-   </table>
-   </div>
+            <span>
+              <input type="text" class="first" autocomplete="off" />
+            </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              style="margin-bottom: 4px"
+              width="25"
+              height="22"
+              fill="currentColor"
+              class="bi bi-dash-square"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+              />
+              <path
+                d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"
+              />
+            </svg>
+          </p>
+        </td>
 
-   <!-- Summary  -->
-   <div class="column2">
-     <h4 style="text-align:center;">Summary</h4>
-     
-     <table class="tablesummary">
-       <tr>
-         <td>Subtotal</td>
-         <td>₹ 12345</td>
-       </tr>
-       <tr>
-         <td>Estimated Delivery & Handling</td>
-         <td>₹ 0</td>
-       </tr>
-       <div class="fade_rule"></div>  
-       
-       <tr>
-         <td>Total</td>
-         <td>₹ 45677</td>
-       </tr>
-       <div class="fade_rule"></div>   
-
-      
-     </table>
-     <button class="checkout">Checkout</button>
-
-   </div>
+        <td>
+          <button (click)="deleteCart(cart.cartId)" type="submit">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="26"
+              height="26"
+              fill="currentColor"
+              class="bi bi-trash"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+              />
+            </svg>
+          </button>
+        </td>
+      </tr>
+    </table>
   </div>
+
+  <!-- Summary  -->
+  <div class="column2">
+    <h4 style="text-align: center">Summary</h4>
+
+    <table class="tablesummary">
+      <tr>
+        <td>Subtotal</td>
+        <td>₹ 12345</td>
+      </tr>
+      <tr>
+        <td>Estimated Delivery & Handling</td>
+        <td>₹ 0</td>
+      </tr>
+      <div class="fade_rule"></div>
+
+      <tr>
+        <td>Total</td>
+        <td>₹ 45677</td>
+      </tr>
+      <div class="fade_rule"></div>
+    </table>
+    <button class="checkout">Checkout</button>
+  </div>
+</div>

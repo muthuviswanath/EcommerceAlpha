@@ -7,7 +7,7 @@ import { ICart } from "./ICart";
   providedIn: "root",
 })
 export class CartServices implements OnInit {
-  userid: number = 2;
+ // userid: number = 2;
   constructor(private http: HttpClient) {}
 
   baseUrl: string = "http://localhost:5000/api/";

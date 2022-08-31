@@ -1,64 +1,36 @@
-<html>
-  <head>
-    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
-    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
-  </head>
-
-  <body>
-
-
-     <div class="container">
-      <!-- Products Cart -->
-      <div class="column1">
-      <h4>Your Cart</h4>
-      <table class="tablecart">
-        <tr *ngFor="let wishlist of wishList" class="cartrow">
-
-          <td><img src={{wishlist.product.imagePath}} class="image"></td>
-          <td>
-            <p class="productname">{{wishlist.product.productName}}</p>
-
-            <p class="productdesc">{{wishlist.product.productDesc}}</p>
-            <p>Size: 2.5  Quantity: 1</p>
-          </td>
-
-
-
-
-          <!-- <div class="fade_rule"></div> -->
-        </tr>
-
-
-      </table>
-      </div>
-
-      <!-- Summary  -->
-      <div class="column2">
-        <h4>Summary</h4>
-
-        <table class="tablesummary">
-          <tr>
-            <td>Subtotal</td>
-            <td>₹ 12345</td>
-          </tr>
-          <tr>
-            <td>Estimated Delivery & Handling</td>
-            <td>₹ 0</td>
-          </tr>
-          <div class="fade_rule"></div>
-
-          <tr>
-            <td>Total</td>
-            <td>₹ 45677</td>
-          </tr>
-          <div class="fade_rule"></div>
-
-
-        </table>
-        <button class="checkout">Checkout</button>
-
-      </div>
-     </div>
-  </body>
-
-</html>
+<div class="container">
+  <!-- Products Cart -->
+  <div class="column1">
+    <h4 style="text-align: center">Wishlist</h4>
+    <table class="tablecart">
+      <tr *ngFor="let wishlist of wishList" class="cartrow">
+        <td><img src={{wishlist.product.imagePath}} class="image"></td>
+        <td>
+          <p class="productname">{{wishlist.product.productName}}</p>
+          <p class="productdesc">{{wishlist.product.productDesc}}</p>
+          <p>Size: 2.5</p>
+        </td>
+        
+        <td>
+          <button type="submit" class="addbutton">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" fill="currentColor"
+              class="bi bi-bag-heart-fill" viewBox="0 0 16 16">
+              <path
+                d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5ZM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1Zm0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z" />
+            </svg>
+          </button>
+        </td>
+        <td>
+          <button type="submit" class="deletebutton">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" fill="currentColor"
+              class="bi bi-trash3-fill" viewBox="0 0 16 16">
+              <path
+                d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
+            </svg>
+          </button>
+        </td>
+        <!-- <div class="fade_rule"></div> -->
+      </tr>
+    </table>
+  </div>
+</div>

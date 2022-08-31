@@ -30,32 +30,31 @@ import { SignupComponent } from './signup/signup.component';
 import { NewarrivalComponent } from './newarrival/newarrival.component';
 import { CategoryComponent } from './category/category.component';
 import { BannernewarrivalComponent } from './bannernewarrival/bannernewarrival.component';
+import { ProductDescriptionComponent } from './product-description/product-description.component';
+import { CRUDProductComponent } from './dummycrud/dummycrud.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-
     Footer1Component,
      ProductCardComponent,
      CartComponent,
      OrderComponent,
      WishlistComponent,
      UserComponent,
-
      HeaderComponent,
      BannerComponent,
      HomeComponent,
-
-
      LoginComponent,
      SignupComponent,
-
      NewarrivalComponent,
        CategoryComponent,
-       BannernewarrivalComponent
-
-
+       BannernewarrivalComponent,
+       ProductDescriptionComponent,
+       CRUDProductComponent,
+       ThankYouComponent
   ],
   imports: [
     FormsModule,

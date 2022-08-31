@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit
          else{
            alert("Login SuccessFull,");
            sessionStorage.setItem('Username',this.loginForm.value.username);
-           
+          //  localStorage.setItem('UserId', this.);
          }
        }
        
