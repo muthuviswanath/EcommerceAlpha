@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from './IProduct';
 import { ProductServices } from './product.services';
-import { Validators, FormBuilder, FormControl, FormGroup,Form } from '@angular/forms';
+import { ReactiveFormsModule, Validators, FormBuilder, FormControl, FormGroup,Form } from '@angular/forms';
 
 @Component({
   selector: 'app-product-card',
@@ -9,12 +9,13 @@ import { Validators, FormBuilder, FormControl, FormGroup,Form } from '@angular/f
   styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent implements OnInit {
+  public sessionStorage = sessionStorage;
   productList:IProduct[];
   modalOpen = false;
   constructor(private service:ProductServices){}
 
   ngOnInit(): void {
-    this.service.getAllEmpInfo().subscribe(
+    this.service.getAllProdInfo().subscribe(
 
       res => this.productList = res
 
@@ -24,17 +25,31 @@ export class ProductCardComponent implements OnInit {
   ProductSearch = new FormGroup
   (
    {
-     SearchString : new FormControl()
+     SearchString : new FormControl(),
+     lowprice : new FormControl(),
+     highprice : new FormControl(),
+     sortby: new FormControl()
    }
   );
 
   Search():void
   {
-    this.service.SearchProduct(this.ProductSearch.value.SearchString)
-    .subscribe
-    (
-      res => this.productList = res
-    );
+    
+    this.service.SearchProduct(this.ProductSearch.value.SearchString, 
+                                  this.ProductSearch.value.lowprice, 
+                                  this.ProductSearch.value.highprice,this.ProductSearch.value.sortby)
+                            .subscribe
+                            (
+                              res => this.productList = res
+                            );
+  }
+
+
+  getProducts() 
+  {
+    return this.productList.filter((product)=> product.productCategory.includes(sessionStorage.getItem('ProductCategory')));
   }
 
 }
+
+

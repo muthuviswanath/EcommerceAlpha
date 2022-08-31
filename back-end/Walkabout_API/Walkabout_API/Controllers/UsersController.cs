@@ -28,10 +28,10 @@ namespace Walkabout_API.Controllers
         }
 
         // GET: api/Users/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(int id)
+        [HttpGet("{username}")]
+        public async Task<ActionResult<IEnumerable<User>>> GetUser(string username)
         {
-            var user = await _context.Users.FindAsync(id);
+            var user = _context.Users.Where(u => u.UserName == username).ToList();
 
             if (user == null)
             {
