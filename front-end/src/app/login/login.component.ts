@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormControl, FormGroup,Form } from '@angular/forms';
 import { ProductServices } from '../product.services';
+import { UserServices } from '../user/user.services';
+
 
 @Component({
   selector: 'app-login',
@@ -10,8 +12,8 @@ import { ProductServices } from '../product.services';
 export class LoginComponent implements OnInit 
 {
   ngOnInit(): void {}
-  constructor(private service : ProductServices ) {}
-
+  constructor(private service : ProductServices,private Userservice : UserServices) {}
+ 
   
    loginForm = new FormGroup
    (
@@ -37,22 +39,20 @@ export class LoginComponent implements OnInit
            alert("Login SuccessFull,");
            sessionStorage.setItem('Username',this.loginForm.value.username);
            
+           this.Userservice.getUserId(this.loginForm.value.username)
+           .subscribe
+           (
+            response=>
+            {
+              sessionStorage.setItem('UserID',String(response[0].userId));
+              if(String(response[0].role)=="seller")sessionStorage.setItem('UserRole',String(response[0].role));
+            }
+           )
+           
          }
        }
        
      );
    } 
-
-   
-   //Pending
-
-  //  get Empname() : FormControl
-  //  {
-  //    return this.loginForm.get('username') as FormControl;
-  //  }
-  //  get Empid() : FormControl
-  //  {
-  //    return this.loginForm.get('password') as FormControl;
-  //  }
 
 }

@@ -15,12 +15,10 @@ export class HeaderComponent implements OnInit {
   logout():void
   {
    console.log("Hi logout");
-   
    sessionStorage.removeItem('Username');
-
-  
+   sessionStorage.removeItem('UserID');
+   sessionStorage.removeItem('UserRole');
    sessionStorage.clear(); 
-   
    sessionStorage = sessionStorage;
   }
 

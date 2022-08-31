@@ -1,5 +1,5 @@
 <br>
-<form  [formGroup] = "ProductSearch" (ngSubmit)="Search()" class="form-inline my-2 my-lg-0" style="margin-left: 5%; ;display: flex;">
+<form [formGroup] = "ProductSearch" (ngSubmit)="Search()" class="form-inline my-2 my-lg-0" style="margin-left: 5%; ;display: flex;">
   <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search" formControlName = "SearchString">
   
   <input class="form-control mr-sm-2" type="search" placeholder="Low Price" aria-label="Search" formControlName = "lowprice">
@@ -16,12 +16,11 @@
 
   
   <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin-left:5px ;border:1px solid #ff5e14; color: #ff5e14;"><span>Search</span></button>
-
-   
-  
-
-   
 </form>
+
+<a *ngIf = "sessionStorage.getItem('UserRole')" class="btn btn-primary" routerLink="/crudproduct"> Modify Products</a>
+
+
 
 
 

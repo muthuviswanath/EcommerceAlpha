@@ -14,7 +14,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
 
-    this.service.getAllEmpInfo().subscribe(
+    this.service.getAllProdInfo().subscribe(
 
       res => this.productList = res
 

@@ -17,7 +17,8 @@ export class CartComponent implements OnInit {
   name: string;
   total=0;
   j=0;
-  userid = 2;
+  userid = 2; 
+  // sessionStorage.getItem('UserID')
 
   constructor(
     private cartService: CartServices,

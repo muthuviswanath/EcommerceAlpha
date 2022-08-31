@@ -13,7 +13,7 @@ import  {IProduct} from "./IProduct";
 export class ProductServices implements OnInit {
 
 
-
+    public sessionStorage = sessionStorage;
     constructor(private http:HttpClient){}
 
     baseUrl:string = "http://localhost:5000/api/"
@@ -22,7 +22,7 @@ export class ProductServices implements OnInit {
 
     }
 
-    getAllEmpInfo():Observable<IProduct[]>{
+    getAllProdInfo():Observable<IProduct[]>{
 
         return this.http.get<IProduct[]>(this.baseUrl+"Products");
     }
@@ -42,9 +42,31 @@ export class ProductServices implements OnInit {
             sortby="not_defined";
         }
         return this.http.get<IProduct[]>(`http://localhost:5000/api/Products/${SearchString}/${lowprice}/${highprice}/${sortby}`);
-
-        
         
     }
+    UpdateProduct(product: IProduct) : Observable<IProduct>
+    {
+      console.log(product.productId);
+      return this.http.put<IProduct>(this.baseUrl + "Products/" + product.productId,product);
+    }
+
+    AddProduct(product: IProduct) : Observable<IProduct>
+    {
+        if(product.productId==null)
+        {
+          product.productId=0;
+          console.log(product);
+        }
+      return this.http.post<IProduct>("http://localhost:5000/api/Products",product);
+    }
+
+    DeleteProduct(productId:number) : Observable<IProduct>
+    {
+      return this.http.delete<IProduct>("http://localhost:5000/api/Products/" + productId);
+    }
+
+
+
+
 
 }

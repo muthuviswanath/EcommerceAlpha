@@ -6,14 +6,18 @@
 
   <body>
 
-
+    
+      
+   
      <div class="container">
+      
       <!-- Products Cart -->
       <div class="column1">
+       
       <h4>Your Cart</h4>
       <table class="tablecart">
         <tr *ngFor="let wishlist of wishList" class="cartrow">
-
+          
           <td><img src={{wishlist.product.imagePath}} class="image"></td>
           <td>
             <p class="productname">{{wishlist.product.productName}}</p>
