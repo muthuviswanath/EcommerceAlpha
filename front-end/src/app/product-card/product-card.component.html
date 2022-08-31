@@ -14,12 +14,19 @@
       <div class="bottom">
         <div class="left">
           <div class="details">
-            <h1 style="font-size: 15px;">{{ prod.productName }}</h1>
-            <span style="text-decoration: line-through;">{{ prod.price | currency:'INR'}}</span>
-            <span>{{prod.productOfferPrice | currency:'INR'}}</span>
+            <h1 style="font-size: 18px;">{{ prod.productName }}</h1>
+            <span style="text-decoration: line-through; font-size: 15px; margin-right: 5px;">{{ prod.price | currency:'INR'}}</span>
+            <span style="font-size: 15px;">{{prod.productOfferPrice | currency:'INR'}}</span>
           </div>
-          <div class="buy"><i class="material-icons">add_shopping_cart</i></div>
-        </div>
+
+          <div class="buy">
+            <button type="submit" (click)="submitToCart(prod.productId)"> <i class="material-icons">add_shopping_cart</i></button>
+            <button type="submit" (click)="submitToWishlist(prod.productId)"><i class="material-icons">favorite_border</i></button>
+          </div>
+          <!-- <div class="wishlist">
+            <i class="material-icons">favorite_border</i>
+          </div>    -->
+
       </div>
     </div>
     <div class="inside">

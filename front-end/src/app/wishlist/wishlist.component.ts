@@ -4,6 +4,7 @@ import { WishlistServices } from './wishlist.services';
 import { NgModel } from '@angular/forms';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { ProductServices } from '../product-card/product.services';
+import { IWishlistItem } from '../model/wishlist-list-dto';
 
 @Component({
   selector: 'app-wishlist',
@@ -12,7 +13,7 @@ import { ProductServices } from '../product-card/product.services';
 })
 export class WishlistComponent implements OnInit {
   userid :number = 1;
-  wishList:any;
+  wishList:IWishlistItem[];
   constructor(private Wishlistservice:WishlistServices){}
 
   ngOnInit(): void {

@@ -30,6 +30,7 @@ import { SignupComponent } from './signup/signup.component';
 import { NewarrivalComponent } from './newarrival/newarrival.component';
 import { CategoryComponent } from './category/category.component';
 import { BannernewarrivalComponent } from './bannernewarrival/bannernewarrival.component';
+import { ThankkYouComponent } from './thankk-you/thankk-you.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { BannernewarrivalComponent } from './bannernewarrival/bannernewarrival.c
 
      NewarrivalComponent,
        CategoryComponent,
-       BannernewarrivalComponent
+       BannernewarrivalComponent,
+       ThankkYouComponent
 
 
   ],

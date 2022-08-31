@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IOrderHistory } from '../model/order-history-list';
 import { IOrder } from './IOrder';
 import { OrderServices } from './order.services';
 @Component({
@@ -7,15 +8,15 @@ import { OrderServices } from './order.services';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
-  orderList:IOrder[];
-  constructor(private service:OrderServices){}
+  userid:number = 2;
+  orderList:IOrderHistory[];
+  constructor(private orderservice:OrderServices){}
 
   ngOnInit(): void {
 
-    this.service.getAllOrderInfo().subscribe(
-
-      res => this.orderList = res
-
-    );
-    }
+    this.orderservice.getAllOrderHistory(this.userid).subscribe((res) => {
+      console.log(res);
+      this.orderList=res;
+    });
+}
 }

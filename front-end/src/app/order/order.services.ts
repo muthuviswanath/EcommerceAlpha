@@ -2,6 +2,7 @@ import { Injectable, OnInit } from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import { Observable } from "rxjs";
 import { IOrder } from "./IOrder";
+import { IOrderHistory } from "../model/order-history-list";
 
 
 @Injectable({
@@ -22,11 +23,9 @@ export class OrderServices implements OnInit {
 
     }
 
-    getAllOrderInfo():Observable<IOrder[]>{
-
-        return this.http.get<IOrder[]>(this.baseUrl+"Orders");
-
-
+    getAllOrderHistory(userid):Observable<IOrderHistory[]> {
+      // console.log(cartid)
+      return this.http.get<IOrderHistory[]>(this.baseUrl + "Orders/User/" + userid);
     }
 
 }

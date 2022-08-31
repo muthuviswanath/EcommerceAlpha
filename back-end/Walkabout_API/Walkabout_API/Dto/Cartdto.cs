@@ -14,6 +14,8 @@ namespace Walkabout_API.Dto
 
         public string UserName  { get; set; }
 
+        public double Price { get; set; }
+
         public string Address   { get; set; }
 
     }

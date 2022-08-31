@@ -76,6 +76,7 @@ namespace Walkabout_API.Controllers
                 UserId = x.UserId,
                 CartId=x.CartId,
                 Address = x.User.Address,
+                Price=x.Product.Price,
                 Product = x.Product
             });
             var value = await usersCart.ToListAsync();

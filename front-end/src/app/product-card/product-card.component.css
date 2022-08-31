@@ -80,15 +80,15 @@
 .wrapper .container .bottom .left .details {
   padding: 20px;
   float: left;
-
   width: calc(70% - 40px);
 }
 
-.wrapper .container .bottom .left .buy {
+.wrapper .container .bottom .left .buy .wishlist {
   float: right;
   width: calc(30% - 2px);
   height: 100%;
   background: #f1f1f1;
+  border: 2px solid black;
   transition: background 0.5s;
   border-left: solid thin rgba(0, 0, 0, 0.1);
 }
@@ -138,9 +138,8 @@ box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
   height: auto;
 }
 .wrapper .container .bottom {
-  width: 200%;
+  width: 220%;
   height: 20%;
-
   transition: transform 0.5s;
 }
 .wrapper .container .bottom.clicked {
@@ -176,22 +175,33 @@ box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
   border-left: solid thin rgba(0, 0, 0, 0.1);
 }
 
+
 .wrapper .container .bottom .left .buy i {
   font-size: 30px;
-  padding: 30px;
-  color: #254053;
+   margin-left: 10px;
+  padding-top: 5px;
+  padding-left: 15px;
+  color: black;
   transition: transform 0.5s;
 }
+/* .wrapper .wishlist i {
+  font-size: 30px;
+  padding-top: 20px;
+  padding-left: 2px;
+  color: black;
+  transition: transform 0.5s;
+} */
+
 
 
 .wrapper .container .bottom .left .buy:hover {
-  background: #A6CDDE;
+  background: black;
 }
 
 
 .wrapper .container .bottom .left .buy:hover i {
   transform: translateY(5px);
-  color: #00394B;
+  color:  #ff5e14;
 }
 
 

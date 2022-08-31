@@ -72,7 +72,7 @@
     border-color: #e88382;
     transition: 0.3s;
   }
-  
+
   #section-1 .content-slider nav {
     position: absolute;
     bottom: 0.5em;
@@ -325,10 +325,10 @@
       margin: 1.7em auto;
     }
   }
-  
+
   .banner-inner-wrapper >img{
     width: 100vw;
     height:auto;
     margin-top: -150px;
-    
+
   }

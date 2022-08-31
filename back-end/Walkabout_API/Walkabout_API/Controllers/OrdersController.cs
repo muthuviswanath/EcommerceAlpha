@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Walkabout_API.Dto;
 using Walkabout_API.Models;
 
 namespace Walkabout_API.Controllers
@@ -39,6 +40,22 @@ namespace Walkabout_API.Controllers
             }
 
             return order;
+        }
+
+        [HttpGet("User/{id}")]
+        public async Task<ActionResult<IEnumerable<Orderdto>>> GetCartOfUser(int id)
+        {
+            var usersOrders = _context.Orders.Where(x => x.UserId == id).Include(c => c.User).Include(c => c.Product).Select(x =>
+            new Orderdto
+            {
+                OrderId = x.OrderId,
+                OrderDate = x.OrderDate,
+                UserId = x.UserId,
+                User = x.User,
+                Product = x.Product
+            });
+            var value = await usersOrders.ToListAsync();
+            return value;
         }
 
         // PUT: api/Orders/5

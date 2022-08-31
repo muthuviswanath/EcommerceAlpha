@@ -1,1 +1,23 @@
-<p>order works!</p>
+<div class="container">
+  <!-- Products Cart -->
+  <div class="column1">
+    <h4 style="text-align: center">Order History</h4>
+    <table class="tablecart">
+      <tr *ngFor="let order of orderList" class="cartrow">
+        <td><img src={{order.product.imagePath}} class="image"></td>
+        <td>
+          <p class="productname">{{order.product.productName}}</p>
+          <p class="productdesc">{{order.product.productDescription}}</p>
+          <p>Size: 2.5</p>
+        </td>
+
+        <td>
+
+          <b>Ordered on:</b>   {{order.orderDate | date}}
+        </td>
+
+        <!-- <div class="fade_rule"></div> -->
+      </tr>
+    </table>
+  </div>
+</div>

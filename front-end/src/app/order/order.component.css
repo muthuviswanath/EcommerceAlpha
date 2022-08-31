@@ -1,0 +1,128 @@
+* {
+  --scrollbarBG: black;
+  --thumbBG: #ff5e14;
+  color: #ff5e14;
+}
+
+*::-webkit-scrollbar {
+  width: 11px;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+*::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+.container {
+  display: inline-flex;
+  border-width: 2px solid #ff5e14;
+  border-style: solid;
+  width: 70%;
+  height: 570px;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 35px;
+  background: transparent;
+}
+.column1 {
+  width: 100%;
+  color: #ff5e14;
+  /* border: dashed; */
+  height: 100%;
+  overflow: auto;
+  padding: 20px;
+  border-width: 2px solid #ff5e14;
+}
+
+.fade_rule {
+  height: 1px;
+  background-color: #dedede5d;
+  width: 135%;
+}
+
+.image {
+  width: 150px;
+  height: 150px;
+}
+.tablecart {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 5px;
+  border-bottom: 2px dashed #ff5e14;
+}
+.tablesummary {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+.productdesc {
+  font-weight: 350;
+  margin-top: -10px;
+}
+.productname {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+tr:hover {
+  background-color: #f8f0e3;
+  transition: all 0.5s ease-in-out;
+}
+
+.cartrow {
+  border-radius: 35px;
+  /* background: #1B1212; */
+  color: black;
+}
+
+.addbutton {
+  background-color: #000000;
+  /* margin-bottom: 4px;
+  margin-left: 200px; */
+  width: 70px;
+  border-radius: 5px;
+  border: black;
+  padding: 3px;
+}
+.deletebutton {
+  background-color: #000000;
+
+  margin-left: -50px;
+  width: 70px;
+  border-radius: 5px;
+  border: black;
+  padding: 3px;
+
+}
+/* .submitbutton:hover {
+  background-color: #f8f0e3;
+  transition: all 0s ease-in-out;
+} */
+
+.first {
+  height: 30px;
+  width: 60px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 50px;
+  background-color: #dedede5d;
+  border: 2px solid black;
+}
+.first:focus {
+  outline: none !important;
+  border: 2px solid black;
+  /* box-shadow: 0 0 10px #dedede5d;
+   */
+}
