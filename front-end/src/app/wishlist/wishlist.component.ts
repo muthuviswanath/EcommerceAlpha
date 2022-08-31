@@ -11,13 +11,16 @@ import { IWishlistItem } from '../model/wishlist-list-dto';
   templateUrl: './wishlist.component.html',
   styleUrls: ['./wishlist.component.css']
 })
-export class WishlistComponent implements OnInit {
-  userid :number = 1;
+export class WishlistComponent implements OnInit
+{
+  public sessionStorage = sessionStorage;
+  userid :number = Number(sessionStorage.getItem('UserID'));
   wishList:IWishlistItem[];
   constructor(private Wishlistservice:WishlistServices){}
 
   ngOnInit(): void {
-    this.Wishlistservice.getAllWishlistInfo(this.userid).subscribe((res) => {
+    this.Wishlistservice.getAllWishlistInfo(this.userid).subscribe((res) =>
+    {
       console.log(res);
       this.wishList=res;
      });

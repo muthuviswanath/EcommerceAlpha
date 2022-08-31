@@ -26,4 +26,10 @@ export class UserServices implements OnInit {
 
     return this.http.post(this.baseUrl + "Users", data, httpoptions);
   }
+  
+  getUserId(username: string):Observable<IUser>
+  {
+    return this.http.get<IUser>(this.baseUrl+"Users/"+ username);
+  }
+ 
 }

@@ -1,5 +1,4 @@
 import { NgModule ,NO_ERRORS_SCHEMA} from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +19,7 @@ import { OrderServices } from './order/order.services';
 import { UserComponent } from './user/user.component';
 import { WishlistServices } from './wishlist/wishlist.services';
 import { UserServices } from './user/user.services';
-
+import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { BannerComponent } from './banner/banner.component';
 import { HomeComponent } from './home/home.component';
@@ -30,34 +29,31 @@ import { SignupComponent } from './signup/signup.component';
 import { NewarrivalComponent } from './newarrival/newarrival.component';
 import { CategoryComponent } from './category/category.component';
 import { BannernewarrivalComponent } from './bannernewarrival/bannernewarrival.component';
-import { ThankkYouComponent } from './thankk-you/thankk-you.component';
+import { ProductDescriptionComponent } from './product-description/product-description.component';
+import { CRUDProductComponent } from './dummycrud/dummycrud.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-
     Footer1Component,
      ProductCardComponent,
      CartComponent,
      OrderComponent,
      WishlistComponent,
      UserComponent,
-
      HeaderComponent,
      BannerComponent,
      HomeComponent,
-
-
      LoginComponent,
      SignupComponent,
-
      NewarrivalComponent,
        CategoryComponent,
        BannernewarrivalComponent,
-       ThankkYouComponent
-
-
+       ProductDescriptionComponent,
+       CRUDProductComponent,
+       ThankYouComponent
   ],
   imports: [
     FormsModule,

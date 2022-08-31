@@ -3,6 +3,7 @@
 
 *{
   font-family: 'Poppins', sans-serif;
+ 
 }
 
 :host{
@@ -10,7 +11,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #131313;
+  background: #000000;
 }
 
 .container{
@@ -145,6 +146,7 @@
   color: #111;
   border-radius: 4px;
   cursor: pointer;
+  
 }
 
 .container .card .contentBx .size span:hover{
@@ -175,16 +177,20 @@
 .container .card .contentBx a{
   display: inline-block;
   padding: 10px 20px;
-  background: #fff;
+  /* background: #fff; */
+  background: #000000;
   border-radius: 4px;
   margin-top: 10px;
   text-decoration: none;
   font-weight: 600;
-  color: #111;
+  /* color: #111; */
+  color: #f8f0e3;
   opacity: 0;
   transform: translateY(50px);
   transition: 0.5s;
   margin-top: 0;
+	text-decoration: none;
+	border: 1px solid #9bdc28;
 }
 
 .container .card:hover .contentBx a{
@@ -207,3 +213,13 @@
   font-size: 30px;
   text-align: center;
 }
+
+
+  
+.buynow:focus {
+    background: #000000;
+    color: #f8f0e3;
+	text-decoration: none;
+	border: 1px solid #ff5e14;
+}
+

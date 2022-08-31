@@ -1,99 +1,199 @@
-<body>
 
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-
-
-<div class="login">
-
-  <h3 style="font-weight:bold">Create new account.</h3>
-
-  <div *ngIf="showMessage">
-    <h3 style = "margin-top:0px; float:right;">Login successful</h3>
-  </div>
-
-  <form [FormGroup] = "loginForm" (ngSubmit)="signupUser()">
-
-
-    <input type="text" class="text" name="username" [(ngModel)]="model.userName" placeholder="Username" [formControl]="username">
-    <span>Enter a Username</span>
-
-    <div [hidden]="username.valid || username.untouched" style="float:right; color:red">
-
-      <div [hidden]="!username.hasError('minlength')">
-        Username cannot be less than 5 characters!
-      </div>
-
-      <div [hidden]="!username.hasError('required')">
-        Username cannot be empty!
-      </div>
-
+    <div *ngIf="showMessage">
+      <h3 style="margin-top: 0px; float: right">Login successful</h3>
     </div>
 
+    <!-- <form [FormGroup]="loginForm" (ngSubmit)="signupUser()">
+      <input
+        type="text"
+        class="text"
+        name="username"
+        [(ngModel)]="model.userName"
+        placeholder="Username"
+        [formControl]="username"
+      />
+      <span>Enter a Username</span>
 
-    <input type="password" class="text" name="username" [(ngModel)]="model.password" placeholder="Password" [formControl]="password">
-    <span>Enter a Password</span>
+      <div
+        [hidden]="username.valid || username.untouched"
+        style="float: right; color: red"
+      >
+        <div [hidden]="!username.hasError('minlength')">
+          Username cannot be less than 5 characters!
+        </div>
 
-    <div [hidden]="password.valid || password.untouched" style="float:right; color:red">
-      <div [hidden]="!password.hasError('minlength')">
-        Password cannot be less than 8 characters!
+        <div [hidden]="!username.hasError('required')">
+          Username cannot be empty!
+        </div>
       </div>
-      <div [hidden]="!password.hasError('required')">
-        Password cannot be empty!
+
+      <input
+        type="password"
+        class="text"
+        name="username"
+        [(ngModel)]="model.password"
+        placeholder="Password"
+        [formControl]="password"
+      />
+      <span>Enter a Password</span>
+
+      <div
+        [hidden]="password.valid || password.untouched"
+        style="float: right; color: red"
+      >
+        <div [hidden]="!password.hasError('minlength')">
+          Password cannot be less than 8 characters!
+        </div>
+        <div [hidden]="!password.hasError('required')">
+          Password cannot be empty!
+        </div>
       </div>
-    </div>
 
+      <input
+        type="text"
+        class="text"
+        name="address"
+        [(ngModel)]="model.address"
+        placeholder="Address"
+        [formControl]="address"
+      />
+      <span>Enter your address</span>
 
-
-    <input type="text" class="text" name="address" [(ngModel)]="model.address" placeholder="Address" [formControl]="address">
-    <span>Enter your address</span>
-
-    <div [hidden]="address.valid || address.untouched" style="float:right; color:red">
-      <div [hidden]="!address.hasError('required')">
-        Address cannot be empty!
+      <div
+        [hidden]="address.valid || address.untouched"
+        style="float: right; color: red"
+      >
+        <div [hidden]="!address.hasError('required')">
+          Address cannot be empty!
+        </div>
       </div>
-    </div>
 
+      <input
+        type="text"
+        class="text"
+        name="Email"
+        [(ngModel)]="model.emailId"
+        placeholder="Email ID"
+        [formControl]="email"
+      />
+      <span>Enter your Email ID</span>
 
-
-    <input type="text" class="text" name="Email" [(ngModel)]="model.emailId" placeholder="Email ID" [formControl]="email">
-    <span>Enter your Email ID</span>
-
-    <div [hidden]="email.valid || email.untouched" style="float:right; color:red">
-      <div [hidden]="!email.hasError('required')">
-        Email cannot be empty!
+      <div
+        [hidden]="email.valid || email.untouched"
+        style="float: right; color: red"
+      >
+        <div [hidden]="!email.hasError('required')">Email cannot be empty!</div>
       </div>
-    </div>
 
+      <input
+        type="text"
+        class="text"
+        name="Role"
+        [(ngModel)]="model.role"
+        placeholder="Role"
+        [formControl]="role"
+      />
+      <span>Enter your Role</span>
 
-    <input type="text" class="text" name="Role" [(ngModel)]="model.role" placeholder="Role" [formControl]="role">
-    <span>Enter your Role</span>
-
-    <div [hidden]="role.valid || role.untouched" style="float:right; color:red">
-      <div [hidden]="!role.hasError('required')">
-        Role cannot be empty!
+      <div
+        [hidden]="role.valid || role.untouched"
+        style="float: right; color: red"
+      >
+        <div [hidden]="!role.hasError('required')">Role cannot be empty!</div>
       </div>
-    </div>
 
-    <button class="signin" type="submit" (click)="submit()" routerLink="/login" [disabled]="!loginForm.valid">
-       Create Account
-    </button>
+      <button
+        class="signin"
+        type="submit"
+        (click)="submit()"
+        routerLink="/login"
+        [disabled]="!loginForm.valid"
+      >
+        Create Account
+      </button>
 
+      <div class="logindiv">
+        <p style="margin-left: 26%">Already have an account ?</p>
+        <button
+          routerLink="/login"
+          class="loginbutton"
+          style="margin-left: 5px"
+        >
+          Log In
+        </button>
+      </div>
+    </form>
+  </div> -->
 
-
-    <div class="logindiv">
-    <p style="margin-left:26%; ">Already have an account ?</p>
-    <button routerLink="/login" class="loginbutton" style="margin-left:5px">Log In</button>
-    </div>
-
-  </form>
-
-
-   </div>
-
-</body>
 <!-- <app-category></app-category> -->
 <!-- <app-cart></app-cart> -->
+<div class="wrapper">
+    <div class="logo">
+        <img src="./assets/images/men/sports1.png" alt="">
+    </div>
+    <div class="text-center mt-4 name">
+        Walkabout
+    </div>
+    <form class="p-3 mt-3" [FormGroup]="loginForm" (ngSubmit)="signupUser()">
+        <div class="form-field d-flex align-items-center">
+            <input type="text" name="userName" id="userName" name="username" [(ngModel)]="model.userName" placeholder="Username" [formControl]="username">
+            <div [hidden]="username.valid || username.untouched" style="float: right; color: red">
+                  <div [hidden]="!username.hasError('minlength')">
+                    Username cannot be less than 5 characters!
+                  </div>
+                
+                  <div [hidden]="!username.hasError('required')">
+                    Username cannot be empty!
+                  </div>
+              </div>
+          </div>
+
+        <div class="form-field d-flex align-items-center">
+            <input type="password"  name="username" id="pwd" [(ngModel)]="model.password" placeholder="Password" [formControl]="password">
+            <div [hidden]="password.valid || password.untouched" style="float: right; color: red">
+              <div [hidden]="!password.hasError('minlength')">
+                Password cannot be less than 8 characters!
+              </div>
+              <div [hidden]="!password.hasError('required')">
+                Password cannot be empty!
+              </div>
+            </div>
+          </div>
+
+          <div class="form-field d-flex align-items-center">
+           <input type="text" class="text" name="address" id="pwd" [(ngModel)]="model.address" placeholder="Address" [formControl]="address"/>
+            <div [hidden]="address.valid || address.untouched" style="float: right; color: red">
+              <div [hidden]="!address.hasError('required')">
+                Address cannot be empty!
+              </div>
+            </div>  
+          </div>
+
+        <div class="form-field d-flex align-items-center">
+          <input type="text" class="text" name="Email" [(ngModel)]="model.emailId" placeholder="Email ID" [formControl]="email"/>
+          <div  [hidden]="email.valid || email.untouched" style="float: right; color: red">
+            <div [hidden]="!email.hasError('required')">Email cannot be empty!</div>
+          </div>
+        </div>
+
+        <div class="form-field d-flex align-items-center">
+          <input type="text" class="text" name="Role"  [(ngModel)]="model.role" placeholder="Role" [formControl]="role"/>
+          <div [hidden]="role.valid || role.untouched" style="float: right; color: red">
+            <div [hidden]="!role.hasError('required')">Role cannot be empty!</div>
+          </div>
+        </div>
+      
+        <button class="btn mt-3" type="submit" (click)="submit()" routerLink="/login" [disabled]="!loginForm.valid">Create Account</button>
+    </form>
+    <div class="text-center fs-6">
+      <p>Already have an account ?</p>
+      <a
+        routerLink="/login"
+        style="margin-top: 2px; width: 70px;"
+      >
+        Log In
+    </a>
+    </div>
+</div>
 
 <router-outlet></router-outlet>
-
-

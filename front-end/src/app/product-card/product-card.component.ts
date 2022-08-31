@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from './IProduct';
 import { ProductServices } from './product.services';
+import { ReactiveFormsModule, Validators, FormBuilder, FormControl, FormGroup,Form } from '@angular/forms';
 import { CartServices } from '../cart/cart.services';
-import { FormControl, FormGroup } from '@angular/forms';
 import { WishlistServices } from '../wishlist/wishlist.services';
 import { ICartItem } from '../model/cart-list';
 
@@ -12,8 +12,8 @@ import { ICartItem } from '../model/cart-list';
   styleUrls: ['./product-card.component.css'],
 })
 export class ProductCardComponent implements OnInit {
-  productList: IProduct[];
-
+  public sessionStorage = sessionStorage;
+  productList:IProduct[];
   modalOpen = false;
   model: any = {};
   model1: any = {};
@@ -24,18 +24,37 @@ export class ProductCardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.service.getAllEmpInfo().subscribe((res) => (this.productList = res));
+    this.service.getAllProdInfo().subscribe((res) => (this.productList = res));
   }
 
-  ProductSearch = new FormGroup({
-    SearchString: new FormControl(),
-  });
+  ProductSearch = new FormGroup
+  (
+   {
+     SearchString : new FormControl(),
+     lowprice : new FormControl(),
+     highprice : new FormControl(),
+     sortby: new FormControl()
+   }
+  );
 
-  Search(): void {
-    this.service
-      .SearchProduct(this.ProductSearch.value.SearchString)
-      .subscribe((res) => (this.productList = res));
+  Search():void
+  {
+
+    this.service.SearchProduct(this.ProductSearch.value.SearchString,
+                                  this.ProductSearch.value.lowprice,
+                                  this.ProductSearch.value.highprice,this.ProductSearch.value.sortby)
+                            .subscribe
+                            (
+                              res => this.productList = res
+                            );
   }
+
+  getProducts()
+  {
+    return this.productList.filter((product)=> product.productCategory.includes(sessionStorage.getItem('ProductCategory')));
+  }
+
+
 
   public submitToCart(prdid: any): void {
     this.model.productId = prdid;
@@ -45,6 +64,7 @@ export class ProductCardComponent implements OnInit {
     this.cartservice.addToCartTable(this.model).subscribe((res) => {});
 
     alert('Added to Cart !');
+
   }
   public submitToWishlist(prdid: any): void {
     this.model1.productId = prdid;
@@ -54,4 +74,5 @@ export class ProductCardComponent implements OnInit {
     this.wishlistservice.addToWishlistTable(this.model1).subscribe((res) => {});
     alert('Added to Wishlist !');
   }
+
 }
