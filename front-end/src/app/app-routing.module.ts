@@ -8,6 +8,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { ThankkYouComponent } from './thankk-you/thankk-you.component';
 import { CartComponent } from './cart/cart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { CRUDProductComponent } from './dummycrud/dummycrud.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
@@ -25,7 +26,7 @@ const routes: Routes = [
 
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
-  {path:'crudproduct',component:CRUDProductComponent}
+  {path:'crudproduct',component: CRUDProductComponent}
 ];
 
 @NgModule
