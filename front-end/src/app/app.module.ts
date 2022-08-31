@@ -1,5 +1,4 @@
 import { NgModule ,NO_ERRORS_SCHEMA} from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +19,7 @@ import { OrderServices } from './order/order.services';
 import { UserComponent } from './user/user.component';
 import { WishlistServices } from './wishlist/wishlist.services';
 import { UserServices } from './user/user.services';
-
+import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { BannerComponent } from './banner/banner.component';
 import { HomeComponent } from './home/home.component';

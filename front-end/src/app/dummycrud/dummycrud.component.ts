@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ProductServices } from '../product-card/product.services';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { IProduct } from '../product-card/IProduct';
+import { NgModel } from '@angular/forms';
 
 
 @Component
 ({
-  selector: 'app-crudproduct',
+  selector: 'app-dummycrud',
   templateUrl: './dummycrud.component.html',
   styleUrls: ['./dummycrud.component.css']
 })
@@ -33,7 +34,7 @@ export class CRUDProductComponent implements OnInit
   constructor(private service:ProductServices){}
 
   ngOnInit(): void {
-    this.service.getAllEmpInfo().subscribe(
+    this.service.getAllProdInfo().subscribe(
 
       res => this.productList = res
 
@@ -41,7 +42,7 @@ export class CRUDProductComponent implements OnInit
   }
   GetAllProducts()
   {
-    this.service.getAllEmpInfo().subscribe(
+    this.service.getAllProdInfo().subscribe(
 
       res => this.productList = res
 
@@ -54,54 +55,59 @@ export class CRUDProductComponent implements OnInit
   }
   deleteProduct(productId : number)
   {
-    // this.service.DeleteProduct(productId)
-    // .subscribe
-    // (
-    //   response=>
-    //   {
-    //     this.GetAllProducts();
-    //   }
-    // )
+    this.service.DeleteProduct(productId)
+    .subscribe
+    (
+      response=>
+      {
+        this.GetAllProducts();
+      }
+    )
   }
   onSubmitAdd()
   {
-    // if(this.product.productId==null)
-    // {
-    //   this.service.AddProduct(this.product)
-    //   .subscribe(
-    //     response=>
-    //     {
-    //       this.GetAllProducts();
-    //       this.product = 
-    //       {
-    //         productId:null,
-    //         productName:'',
-    //         quantity:null,
-    //         price:null,
-    //         imagePath:null,
-    //         productDescription:'',
-    //         productRating:null,
-    //         productOfferPrice:null,
-    //         productCategory:''
-    //       }
-    //     }
-    //   )
-    // }
-    // else
-    // {
-    //    this.updateProduct(this.product);
-    // }
+    if(this.product.productId==null)
+    {
+      this.service.AddProduct(this.product)
+      .subscribe(
+        response=>
+        {
+          this.GetAllProducts();
+          this.product = 
+          {
+            productId:null,
+            productName:'',
+            quantity:null,
+            price:null,
+            imagePath:null,
+            productDescription:'',
+            productRating:null,
+            productOfferPrice:null,
+            productCategory:''
+          }
+        }
+      )
+    }
+    else
+    {
+       this.updateProduct(this.product);
+    }
    
   }
 
   updateProduct(product: IProduct)
   {
-    // this.service.UpdateProduct(product)
-    // .subscribe
-    // (
-    //   response=>
-    //   {this.GetAllProducts();}
-    // );
+    this.service.UpdateProduct(product)
+    .subscribe
+    (
+      response=>
+      {this.GetAllProducts();}
+    );
   }
+
+
+
+
+
 }
 

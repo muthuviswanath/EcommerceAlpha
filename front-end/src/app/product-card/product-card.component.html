@@ -21,7 +21,7 @@
 </form>
   </div>
 
-<a class="btn btn-outline-success my-2 my-sm-0" routerLink="/crudproduct"> Modify Products</a>
+<a class="btn btn-outline-success my-2 my-sm-0" routerLink="/crudproduct" *ngIf="sessionStorage.getItem('UserRole')"> Modify Products</a>
 
 
 
