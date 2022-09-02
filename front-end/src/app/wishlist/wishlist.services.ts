@@ -14,9 +14,9 @@ export class WishlistServices implements OnInit {
 
   ngOnInit(): void {}
 
-  getAllWishlistInfo(userid): Observable<IWishlistItem[]> {
+  getAllWishlistInfo(userid) {
     // console.log(cartid)
-    return this.http.get<IWishlistItem[]>(
+    return this.http.get(
       this.baseUrl + 'Wishlists/User/' + userid
     );
   }

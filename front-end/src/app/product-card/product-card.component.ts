@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from './IProduct';
 import { ProductServices } from './product.services';
-import { ReactiveFormsModule, Validators, FormBuilder, FormControl, FormGroup,Form } from '@angular/forms';
+import {
+  ReactiveFormsModule,
+  Validators,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Form,
+} from '@angular/forms';
 import { CartServices } from '../cart/cart.services';
 import { WishlistServices } from '../wishlist/wishlist.services';
 import { ICartItem } from '../model/cart-list';
@@ -13,10 +20,11 @@ import { ICartItem } from '../model/cart-list';
 })
 export class ProductCardComponent implements OnInit {
   public sessionStorage = sessionStorage;
-  productList:IProduct[];
+  productList: IProduct[];
   modalOpen = false;
   model: any = {};
   model1: any = {};
+
   constructor(
     private service: ProductServices,
     private cartservice: CartServices,
@@ -27,52 +35,56 @@ export class ProductCardComponent implements OnInit {
     this.service.getAllProdInfo().subscribe((res) => (this.productList = res));
   }
 
-  ProductSearch = new FormGroup
-  (
-   {
-     SearchString : new FormControl(),
-     lowprice : new FormControl(),
-     highprice : new FormControl(),
-     sortby: new FormControl()
-   }
-  );
+  ProductSearch = new FormGroup({
+    SearchString: new FormControl(),
+    lowprice: new FormControl(),
+    highprice: new FormControl(),
+    sortby: new FormControl(),
+  });
 
-  Search():void
-  {
-
-    this.service.SearchProduct(this.ProductSearch.value.SearchString,
-                                  this.ProductSearch.value.lowprice,
-                                  this.ProductSearch.value.highprice,this.ProductSearch.value.sortby)
-                            .subscribe
-                            (
-                              res => this.productList = res
-                            );
+  Search(): void {
+    this.service
+      .SearchProduct(
+        this.ProductSearch.value.SearchString,
+        this.ProductSearch.value.lowprice,
+        this.ProductSearch.value.highprice,
+        this.ProductSearch.value.sortby
+      )
+      .subscribe((res) => (this.productList = res));
   }
 
-  getProducts()
-  {
-    return this.productList.filter((product)=> product.productCategory.includes(sessionStorage.getItem('ProductCategory')));
+  getProducts() {
+    return this.productList.filter((product) =>
+      product.productCategory.includes(
+        sessionStorage.getItem('ProductCategory')
+      )
+    );
   }
-
-
 
   public submitToCart(prdid: any): void {
-    this.model.productId = prdid;
-    this.model.userId = 2;
-    this.model.cartTotal = 1;
+    if (sessionStorage.getItem('UserID')) {
+      this.model.productId = prdid;
+      this.model.userId = sessionStorage.getItem('UserID');
+      this.model.cartTotal = 1;
 
-    this.cartservice.addToCartTable(this.model).subscribe((res) => {});
-
-    alert('Added to Cart !');
-
+      this.cartservice.addToCartTable(this.model).subscribe((res) => {
+        alert('Added to Cart !');
+      });
+    } else {
+      alert('you need to register /login!');
+    }
   }
   public submitToWishlist(prdid: any): void {
-    this.model1.productId = prdid;
+    if (sessionStorage.getItem('UserID')) {
+      this.model1.productId = prdid;
 
-    this.model1.userId = 2;
+      this.model1.userId = sessionStorage.getItem('UserID');
 
-    this.wishlistservice.addToWishlistTable(this.model1).subscribe((res) => {});
-    alert('Added to Wishlist !');
+      this.wishlistservice.addToWishlistTable(this.model1).subscribe((res) => {
+        alert('Added to Wishlist !');
+      });
+    } else {
+      alert('you need to register /login!');
+    }
   }
-
 }

@@ -5,6 +5,7 @@ import { NgModel } from '@angular/forms';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { ProductServices } from '../product-card/product.services';
 import { IWishlistItem } from '../model/wishlist-list-dto';
+import { CartServices } from '../cart/cart.services';
 
 @Component({
   selector: 'app-wishlist',
@@ -15,8 +16,9 @@ export class WishlistComponent implements OnInit
 {
   public sessionStorage = sessionStorage;
   userid :number = Number(sessionStorage.getItem('UserID'));
-  wishList:IWishlistItem[];
-  constructor(private Wishlistservice:WishlistServices){}
+  wishList:any;
+  model:any;
+  constructor(private Wishlistservice:WishlistServices,private cartservice:CartServices){}
 
   ngOnInit(): void {
     this.Wishlistservice.getAllWishlistInfo(this.userid).subscribe((res) =>
@@ -25,6 +27,17 @@ export class WishlistComponent implements OnInit
       this.wishList=res;
      });
 
+
+    }
+
+    public submitToCart(prdid: any): void {
+      this.model.productId = prdid;
+      this.model.userId = sessionStorage.getItem('UserID');
+      this.model.cartTotal = 1;
+
+      this.cartservice.addToCartTable(this.model).subscribe((res) => {});
+
+      alert('Added to Cart !');
 
     }
 

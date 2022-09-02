@@ -4,7 +4,12 @@
 *{
   font-family: 'Poppins', sans-serif;
 }
- .textimage 
+
+:host{
+  margin-top: 500px;
+  margin-bottom: 500px;
+}
+ .textimage
 {
   position: absolute;
   top: 3px;
@@ -13,7 +18,7 @@
   font-size:28px;
   color: #003300;
 }
-   
+
 
 body{
   display: flex;
@@ -29,7 +34,7 @@ body{
   position: relative;
   display:inline-flex;
   width:100%;
- 
+
   justify-content: center;
 }
 
@@ -82,12 +87,12 @@ body{
 .container .card:hover .imgBx{
   top: 0%;
   transform: translateY(0%);
-    
+
 }
 
 .container .card .imgBx img{
   position: absolute;
-/*   top: 50%; 
+/*   top: 50%;
    left: 50%;
   transform: translate(-50%, -50%) rotate(-25deg); */
   width: 270px;
@@ -101,7 +106,7 @@ body{
   text-align: center;
   transition: 1s;
   z-index: 10;
-  
+
 }
 
 .container .card:hover .contentBx{
@@ -239,14 +244,14 @@ body{
   opacity: 1;
   transform: translateY(0px);
   transition-delay: 0s;
-  
+
 }
 .container .card:hover .contentBx div {
   opacity: 1;
   transform: translateY(0px);
   transition-delay: 0s;
-  
-  
+
+
   position: absolute;
   top: 3px;
   right: 10px;

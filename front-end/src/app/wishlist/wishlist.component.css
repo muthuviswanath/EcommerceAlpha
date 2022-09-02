@@ -1,3 +1,6 @@
+:host{
+  margin-top: 100px;
+}
 * {
   --scrollbarBG: black;
   --thumbBG: #ff5e14;
@@ -20,6 +23,7 @@
   border: 3px solid var(--scrollbarBG);
 }
 .container {
+  margin-top:100px;
   display: inline-flex;
   border-width: 2px solid #ff5e14;
   border-style: solid;
@@ -98,7 +102,7 @@ tr:hover {
 }
 .deletebutton {
   background-color: #000000;
-  
+
   margin-left: -50px;
   width: 70px;
   border-radius: 5px;

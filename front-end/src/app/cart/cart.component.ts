@@ -17,12 +17,12 @@ import { Router, RouterModule, Routes } from '@angular/router';
 export class CartComponent implements OnInit {
   @Input('product') product: any;
   checkout:any = {};
-  cartList:any;
+  public cartList:any;
   prodList: IProduct[];
   name: string;
   public total: number = 0;
   j = 0;
-  userid = 2;
+  userid = Number(sessionStorage.getItem('UserID'));
 
   date= new Date();
 

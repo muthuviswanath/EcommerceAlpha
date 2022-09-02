@@ -8,7 +8,7 @@ import { OrderServices } from './order.services';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
-  userid:number = 2;
+  userid:number = Number(sessionStorage.getItem('UserID'));
   orderList:IOrderHistory[];
   constructor(private orderservice:OrderServices){}
 

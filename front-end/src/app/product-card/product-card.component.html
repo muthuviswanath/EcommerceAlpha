@@ -2,12 +2,12 @@
 <div>
 <form [formGroup] = "ProductSearch" (ngSubmit)="Search()" class="form-inline my-2 my-lg-0" style="margin-left: 5%; ;display: flex;">
   <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search" formControlName = "SearchString">
-  
+
   <input class="form-control mr-sm-2" type="search" placeholder="Low Price" aria-label="Search" formControlName = "lowprice">
   <input class="form-control mr-sm-2" type="search" placeholder="High Price" aria-label="Search" formControlName = "highprice">
-  
-  
-  
+
+
+
   <select formControlName = "sortby" class="dropdown">
     <option value="AscendingName" >Name: Ascending</option>
     <option value="DescendingName"  >Name: Descending</option>
@@ -34,7 +34,7 @@
   <div class="wrapper" *ngFor="let prod of productList">
     <div class="container" >
       <div class="top">
-        <img src={{prod.imagePath}} />
+        <img class="prod-image" src={{prod.imagePath}} />
       </div>
       <div class="bottom">
         <div class="left">

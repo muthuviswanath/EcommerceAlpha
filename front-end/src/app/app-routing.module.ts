@@ -9,21 +9,20 @@ import { ThankkYouComponent } from './thankk-you/thankk-you.component';
 import { CartComponent } from './cart/cart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { CRUDProductComponent } from './dummycrud/dummycrud.component';
+import { NewarrivalComponent } from './newarrival/newarrival.component';
+import { OrderComponent } from './order/order.component';
+import { ProductDescriptionComponent } from './product-description/product-description.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   {path:'home',component:HomeComponent},
+  {path:'order',component:OrderComponent},
+  {path:'product-description',component:ProductDescriptionComponent},
   {path:'product-card',component:ProductCardComponent},
   {path:'thankk-you',component:ThankkYouComponent},
  {path:'cart',component:CartComponent},
  {path:'wishlist',component:WishlistComponent},
-
-/*
-  {path:'product-card',
-  loadChildren: () =>
-  import('./product-card/product-card.component').then((m)=>m.ProductCardComponent)
-  }*/
-
+ {path:'newarrival',component:NewarrivalComponent},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
   {path:'crudproduct',component: CRUDProductComponent}

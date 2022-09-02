@@ -1,7 +1,7 @@
 .navbar{
     background-color: #000000;
   }
- 
+
 
 
   a{
@@ -20,11 +20,11 @@
 
   #navbarSupportedContent{
     float:none;
-    
+
     padding-left: 10vw;
   }
 
-  @media screen and (max-width: 600px) { 
+  @media screen and (max-width: 600px) {
     .topnav-centered a {
       position: relative;
       top: 0;
@@ -35,7 +35,7 @@
   .icon{
     size:20px;
     color:red;
-    
+
   }
   .nav-link:hover{
 color:#ff5e14;
@@ -46,8 +46,21 @@ color:#ff5e14;
     border: 1px solid white;
      color: #000000;
   }
-  
+
 
   .bi:hover{
     color: #ff5e14;
+  }
+
+  .cart-no{
+    position: absolute;
+    min-width: 25px;
+    min-height: 25px;
+    border-radius: 50%;
+    font-size: 1em;
+    background: orangered;
+    color: white;
+    text-align: center;
+    top: -12px;
+    right:30px;
   }
