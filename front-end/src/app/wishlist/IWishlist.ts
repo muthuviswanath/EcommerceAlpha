@@ -1,4 +1,5 @@
-export interface IWishlist{
+export interface IWishlist
+{
   userId:number;
   productId:number;
 

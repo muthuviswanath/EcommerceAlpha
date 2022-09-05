@@ -17,7 +17,7 @@ export class WishlistComponent implements OnInit
   public sessionStorage = sessionStorage;
   userid :number = Number(sessionStorage.getItem('UserID'));
   wishList:any;
-  model:any;
+  model:any={};
   constructor(private Wishlistservice:WishlistServices,private cartservice:CartServices){}
 
   ngOnInit(): void {
@@ -30,16 +30,36 @@ export class WishlistComponent implements OnInit
 
     }
 
-    public submitToCart(prdid: any): void {
+    public submitToCart(prdid: any): void 
+    {
+      
       this.model.productId = prdid;
       this.model.userId = sessionStorage.getItem('UserID');
       this.model.cartTotal = 1;
 
-      this.cartservice.addToCartTable(this.model).subscribe((res) => {});
-
-      alert('Added to Cart !');
+      this.cartservice.addToCartTable(this.model).subscribe((res) => 
+      {
+        alert('Added to Cart !');
+      });
+      
 
     }
+
+    // if (sessionStorage.getItem('UserID')) 
+    // {
+    //   this.model.productId = prdid;
+    //   this.model.userId = sessionStorage.getItem('UserID');
+    //   this.model.cartTotal = 1;
+
+    //   this.cartservice.addToCartTable(this.model).subscribe((res) => 
+    //   {
+    //     alert('Added to Cart !');
+    //   });
+    // } 
+    // else 
+    // {
+    //   alert('you need to register /login!');
+    // }
 
 
 }

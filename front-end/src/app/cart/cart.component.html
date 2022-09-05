@@ -1,4 +1,4 @@
-  <h4 class=" display-5 text-center">Your Cart</h4>
+  <h4 class=" display-5 text-center" *ngIf="cartList.length === 0">Your Cart</h4>
 
     <br/>
 
@@ -62,7 +62,7 @@
 
        <tr>
          <td>Total</td>
-         <td>₹ {{total + 30.25 | currency:'INR'}}</td>
+         <td> {{total  +  30.25 | currency:'INR'}}</td>
        </tr>
        <div class="fade_rule"></div>
 

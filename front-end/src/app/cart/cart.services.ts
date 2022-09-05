@@ -25,7 +25,9 @@ export class CartServices implements OnInit {
   editShoppingCartProduct(cartId: number, data: any) {
     return this.http.put(this.baseUrl + 'Carts/' + cartId, data);
   }
-  public addToCartTable(data: any) {
+  public addToCartTable(data: any) 
+  {
+    console.log(data);
     const httpoptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json; charset=utf-8',
