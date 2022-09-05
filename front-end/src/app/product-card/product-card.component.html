@@ -31,7 +31,7 @@
 <br>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 <div class="wrapper-container">
-  <div class="wrapper" *ngFor="let prod of productList">
+  <div class="wrapper" *ngFor="let prod of getProducts()">
     <div class="container" >
       <div class="top">
         <img class="prod-image" src={{prod.imagePath}} />

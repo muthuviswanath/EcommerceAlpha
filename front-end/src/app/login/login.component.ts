@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormControl, FormGroup,Form } from '@angular/forms';
 import { ProductServices } from '../product.services';
 import { UserServices } from '../user/user.services';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { UserServices } from '../user/user.services';
 export class LoginComponent implements OnInit 
 {
   ngOnInit(): void {}
-  constructor(private service : ProductServices,private Userservice : UserServices) {}
+  constructor(private service : ProductServices,private Userservice : UserServices,private _router: Router) {}
  
   
    loginForm = new FormGroup
@@ -35,7 +36,8 @@ export class LoginComponent implements OnInit
          {
            alert("Login Un-Successful");
          }
-         else{
+         else
+         {
            alert("Login SuccessFull,");
            sessionStorage.setItem('Username',this.loginForm.value.username);
            
@@ -48,6 +50,8 @@ export class LoginComponent implements OnInit
               if(String(response[0].role)=="seller")sessionStorage.setItem('UserRole',String(response[0].role));
             }
            )
+           this._router.navigateByUrl('/home');
+           
            
          }
        }

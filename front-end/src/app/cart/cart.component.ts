@@ -45,6 +45,7 @@ export class CartComponent implements OnInit {
         Object.assign({}, item, { quantity: 1 })
       );
       console.log('cartlist', this.cartList);
+      this.sumtotal();
       //  console.log(this.cartList.length);
 
       //console.log(i);

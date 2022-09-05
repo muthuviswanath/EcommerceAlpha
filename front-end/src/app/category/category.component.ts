@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-
+  
+  public sessionStorage=sessionStorage;
   constructor() { }
 
   ngOnInit(): void 
@@ -15,6 +16,7 @@ export class CategoryComponent implements OnInit {
 
   SetSession(category:string):void
   {
+    console.log(category);
     sessionStorage.setItem('ProductCategory',category);
   }
 

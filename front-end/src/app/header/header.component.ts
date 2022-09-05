@@ -12,7 +12,8 @@ export class HeaderComponent implements OnInit {
   constructor() { }
   public sessionStorage = sessionStorage;
   usercheck = Boolean(sessionStorage.getItem('UserID'))
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
   }
   logout():void
   {
@@ -22,6 +23,13 @@ export class HeaderComponent implements OnInit {
    sessionStorage.removeItem('UserRole');
    sessionStorage.clear();
    sessionStorage = sessionStorage;
+   this.usercheck = Boolean(sessionStorage.getItem('UserID'))
+   window.location.reload();
+  }
+  clearsession():void
+  {
+    this.sessionStorage.removeItem('ProductCategory');
+
   }
 
 

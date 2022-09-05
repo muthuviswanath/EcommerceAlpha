@@ -53,24 +53,35 @@ export class ProductCardComponent implements OnInit {
       .subscribe((res) => (this.productList = res));
   }
 
-  getProducts() {
-    return this.productList.filter((product) =>
+  getProducts()
+   {
+    if(this.sessionStorage.getItem('ProductCategory'))
+    {
+      return this.productList.filter((product) =>
       product.productCategory.includes(
         sessionStorage.getItem('ProductCategory')
       )
     );
+    }
+    return this.productList;
+   
   }
 
-  public submitToCart(prdid: any): void {
-    if (sessionStorage.getItem('UserID')) {
+  public submitToCart(prdid: any): void 
+  {
+    if (sessionStorage.getItem('UserID')) 
+    {
       this.model.productId = prdid;
       this.model.userId = sessionStorage.getItem('UserID');
       this.model.cartTotal = 1;
 
-      this.cartservice.addToCartTable(this.model).subscribe((res) => {
+      this.cartservice.addToCartTable(this.model).subscribe((res) => 
+      {
         alert('Added to Cart !');
       });
-    } else {
+    } 
+    else 
+    {
       alert('you need to register /login!');
     }
   }
@@ -87,4 +98,5 @@ export class ProductCardComponent implements OnInit {
       alert('you need to register /login!');
     }
   }
+  
 }

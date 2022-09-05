@@ -3,7 +3,7 @@
         <img src="./assets/images/logo/walkaboutText.png" style="height: 30px;" alt="Walkabout">
         </a>
 
-    <p>Hello {{sessionStorage.getItem('Username')}}</p>
+    <p style="color:white">Hello {{sessionStorage.getItem('Username')}}</p>
 
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -17,7 +17,7 @@
                 <a class="nav-link" routerLink="/home">Home </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/product-card">Products</a>
+                <a class="nav-link" routerLink="/product-card" (click)="clearsession()">Products</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" routerLink="/newarrival">New Arrivals</a>
@@ -31,7 +31,7 @@
 
 
               <li class="nav-item">
-                <a class="nav-link" routerLink="/signup" >Sign Up</a>
+                <a class="nav-link" routerLink="/signup" *ngIf="!sessionStorage.getItem('Username')">Sign Up</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" routerLink="/login" *ngIf="!sessionStorage.getItem('Username')">Log In</a>
@@ -41,7 +41,7 @@
         </ul>
 
 
-        <ul class="navbar-nav mr-auto nav" *ngIf="usercheck" >
+        <ul class="navbar-nav mr-auto nav" *ngIf="sessionStorage.getItem('Username')" >
           <li class="nav-item">
             <a routerLink="/order" class="nav-link">Order History</a>
           </li>
