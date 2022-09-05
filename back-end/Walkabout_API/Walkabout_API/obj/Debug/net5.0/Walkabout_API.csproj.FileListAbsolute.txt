@@ -139,3 +139,4 @@ C:\My apps\AngularApplications\AngularApplications\1.AngularProject\EcommerceAlp
 C:\My apps\AngularApplications\AngularApplications\1.AngularProject\EcommerceAlpha\back-end\Walkabout_API\Walkabout_API\obj\Debug\net5.0\Walkabout_API.pdb
 C:\My apps\AngularApplications\AngularApplications\1.AngularProject\EcommerceAlpha\back-end\Walkabout_API\Walkabout_API\obj\Debug\net5.0\Walkabout_API.genruntimeconfig.cache
 C:\My apps\AngularApplications\AngularApplications\1.AngularProject\EcommerceAlpha\back-end\Walkabout_API\Walkabout_API\obj\Debug\net5.0\ref\Walkabout_API.dll
+C:\My apps\AngularApplications\AngularApplications\1.AngularProject\EcommerceAlpha\back-end\Walkabout_API\Walkabout_API\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

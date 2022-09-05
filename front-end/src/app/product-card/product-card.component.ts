@@ -69,6 +69,7 @@ export class ProductCardComponent implements OnInit {
 
   public submitToCart(prdid: any): void 
   {
+    console.log(sessionStorage.getItem('UserID'));
     if (sessionStorage.getItem('UserID')) 
     {
       this.model.productId = prdid;

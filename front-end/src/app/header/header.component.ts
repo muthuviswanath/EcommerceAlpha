@@ -17,10 +17,10 @@ export class HeaderComponent implements OnInit {
   }
   logout():void
   {
-   console.log("Hi logout");
    sessionStorage.removeItem('Username');
    sessionStorage.removeItem('UserID');
    sessionStorage.removeItem('UserRole');
+   sessionStorage.removeItem('jwt');
    sessionStorage.clear();
    sessionStorage = sessionStorage;
    this.usercheck = Boolean(sessionStorage.getItem('UserID'))

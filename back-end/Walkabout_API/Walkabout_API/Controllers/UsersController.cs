@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -21,7 +22,7 @@ namespace Walkabout_API.Controllers
         }
 
         // GET: api/Users
-        [HttpGet]
+        [HttpGet, Authorize]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
             return await _context.Users.ToListAsync();
@@ -40,6 +41,23 @@ namespace Walkabout_API.Controllers
 
             return user;
         }
+
+        [HttpGet("Username/{username}")]
+
+        public int GetUserIdByName(string username)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.UserName.Equals(username));
+
+            if (user == null)
+            {
+                return 0;
+            }
+
+            return user.UserId;
+
+        }
+
+
 
         // PUT: api/Users/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

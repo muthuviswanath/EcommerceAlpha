@@ -1,9 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormBuilder, FormControl, FormGroup,Form } from '@angular/forms';
+import { Validators, FormBuilder, FormControl, FormGroup,Form,  NgForm } from '@angular/forms';
 import { ProductServices } from '../product.services';
 import { UserServices } from '../user/user.services';
 import { Router } from '@angular/router';
+import { IAuthenticatedResponse } from 'src/app/Interfaces/IAuthenticatedResponse';
 
+
+
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -12,51 +20,52 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit 
 {
-  ngOnInit(): void {}
-  constructor(private service : ProductServices,private Userservice : UserServices,private _router: Router) {}
- 
   
-   loginForm = new FormGroup
-   (
-    {
-      username : new FormControl('',[Validators.required,Validators.minLength(5)]),
-      password :  new FormControl('',[Validators.required,Validators.minLength(8)])
-    }
-   );
+  constructor(
+    private http: HttpClient,
+    private route: Router
+  ) {}
 
-   loginauth():void
-   {
+  ngOnInit() {}
+  invalidLogin: boolean;
+  userid: any;
+  login = (form: NgForm) => 
+  {
+    const credentials = {
+      userName: form.value.userName,
+      password: form.value.password,
+  };
     
-     this.service.LoginUser([this.loginForm.value.username,this.loginForm.value.password])
-     .subscribe
-     (
-       res=>
-       {
-         if(res=='Failure')
-         {
-           alert("Login Un-Successful");
-         }
-         else
-         {
-           alert("Login SuccessFull,");
-           sessionStorage.setItem('Username',this.loginForm.value.username);
-           
-           this.Userservice.getUserId(this.loginForm.value.username)
-           .subscribe
-           (
-            response=>
-            {
-              sessionStorage.setItem('UserID',String(response[0].userId));
-              if(String(response[0].role)=="seller")sessionStorage.setItem('UserRole',String(response[0].role));
-            }
-           )
-           this._router.navigateByUrl('/home');
-           
-           
-         }
-       }
-       
-     );
-   } 
+    console.log(credentials);
+    if (form.valid) 
+    {
+      this.http
+        .post('http://localhost:5000/api/Auth/login', credentials)
+        .subscribe({
+          next: (response: IAuthenticatedResponse) => {
+            const token = response.token;
+            this.http
+              .get(
+                'http://localhost:5000/api/Users/Username/' +
+                  credentials.userName
+              )
+              .subscribe((res) => {
+                console.log("hhhhhhhh",res);
+                this.userid = res;
+               
+                sessionStorage.setItem('UserID',this.userid);
+                sessionStorage.setItem('Username',credentials.userName);
+              });
+            sessionStorage.setItem('jwt', token);
+            this.invalidLogin = false;
+            this.route
+              .navigate(['/home'])
+              .then(() => window.location.reload());
+          },
+          error: (err: HttpErrorResponse) => (this.invalidLogin = true),
+        });
+    }
+  };
+
 
 }
