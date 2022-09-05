@@ -54,13 +54,15 @@ color:#ff5e14;
 
   .cart-no{
     position: absolute;
-    min-width: 25px;
-    min-height: 25px;
+    min-width: 20px;
+    min-height: 15px;
     border-radius: 50%;
     font-size: 1em;
     background: orangered;
     color: white;
     text-align: center;
     top: -12px;
-    right:30px;
+    right:-5px;
+
   }
+
