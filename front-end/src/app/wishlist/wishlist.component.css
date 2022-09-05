@@ -30,11 +30,8 @@
   width: 70%;
   height: 570px;
   justify-content: center;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+
+
   margin: auto;
   border-radius: 35px;
   background: transparent;

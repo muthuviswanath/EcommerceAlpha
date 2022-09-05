@@ -30,4 +30,8 @@ export class WishlistServices implements OnInit {
 
     return this.http.post(this.baseUrl + 'Wishlists', data, httpoptions);
   }
+  deleteWishlistItem(wishlistid:any){
+    return this.http.delete(this.baseUrl + 'Wishlists/' + wishlistid);
+
+  }
 }

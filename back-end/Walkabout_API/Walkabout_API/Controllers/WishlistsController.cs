@@ -49,6 +49,7 @@ namespace Walkabout_API.Controllers
             var usersWishlist = _context.Wishlists.Where(x => x.UserId == id).Include(c => c.User).Include(c => c.Product).Select(x =>
             new Wishlistdto
             {
+                WishlistId = x.WishlistId,
                 UserId = x.UserId,
                 Product = x.Product
             });
