@@ -28,14 +28,14 @@
   height: 570px;
   justify-content: center;
 
-  margin: auto;
+  margin-left:100px;
   border-radius:35px;
   background: transparent;
-  margin-top:100px;
+
   }
 .column1
 {
-  width:70%;
+  width:80%;
   color: #ff5e14;
   /* border: dashed; */
   height: 100%;
@@ -86,7 +86,7 @@
   width:100%;
   border-collapse:separate;
   border-spacing:0 5px;
-  border-bottom: 2px dashed #ff5e14;
+
 
 }
 .tablesummary

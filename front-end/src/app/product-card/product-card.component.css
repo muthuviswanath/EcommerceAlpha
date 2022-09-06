@@ -172,6 +172,7 @@ box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
   background: #f1f1f1;
   transition: background 0.5s;
   border-left: solid thin rgba(0, 0, 0, 0.1);
+  margin-right:-7px;
 }
 
 
@@ -198,7 +199,7 @@ box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
 }
 
 
-.wrapper .container .bottom .left .buy:hover i {
+.wrapper .container .bottom .left .buy i:hover {
   transform: translateY(5px);
   color:  #ff5e14;
 }
