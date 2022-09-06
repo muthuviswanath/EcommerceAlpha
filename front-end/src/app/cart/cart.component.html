@@ -29,7 +29,7 @@
          <p style="padding-left: 25px;">Quantity</p>
              <p>
               <input type="button" value="+" (click)="onIncrementCartItem(cart)" >
-              <input type="text" value={{cart.quantity}}>
+              <input style="width:35px; margin-left:5px; margin-right:5px" type="text" value={{cart.quantity}}>
               <input type="button" value="-" (click)="onDecrementCartItem(cart)">
            </p>
        </td>
@@ -56,7 +56,7 @@
        </tr>
        <tr>
          <td>Estimated Delivery & Handling</td>
-         <td>₹ 30.25</td>
+         <td>₹ {{tax}}</td>
        </tr>
        <div class="fade_rule"></div>
 
@@ -68,7 +68,7 @@
 
 
      </table>
-     <button class="checkout" (click)="checkOut()" routerLink="/thankk-you">Checkout</button>
+     <button class="checkout" (click)="checkOut()" routerLink="/thank-you">Checkout</button>
 
    </div>
   </div>

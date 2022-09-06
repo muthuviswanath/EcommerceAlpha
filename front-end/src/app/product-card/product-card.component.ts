@@ -79,6 +79,7 @@ export class ProductCardComponent implements OnInit {
       this.cartservice.addToCartTable(this.model).subscribe((res) => 
       {
         alert('Added to Cart !');
+        window.location.reload();
       });
     } 
     else 
@@ -94,6 +95,7 @@ export class ProductCardComponent implements OnInit {
 
       this.wishlistservice.addToWishlistTable(this.model1).subscribe((res) => {
         alert('Added to Wishlist !');
+        window.location.reload();
       });
     } else {
       alert('you need to register /login!');

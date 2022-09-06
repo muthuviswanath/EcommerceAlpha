@@ -25,6 +25,7 @@ export class CartComponent implements OnInit {
   userid = Number(sessionStorage.getItem('UserID'));
 
   date= new Date();
+  tax : number = 30.25;
 
 
   constructor(
@@ -66,11 +67,13 @@ export class CartComponent implements OnInit {
 
   onIncrementCartItem(product: ICartItem): void {
     console.log('product', product);
+    product.quantity++;
     if (product.quantity > 5) {
       // TODO: USE toasters / inline messages
+      product.quantity=5;
       alert('ONLY 5 ITEMS ALLOWED PER PRODUCT FOR A USER');
     }
-    product.quantity++;
+   
     // this.quant++;
 
     // if(this.quant > 5){
@@ -82,23 +85,37 @@ export class CartComponent implements OnInit {
     this.sumtotal();
   }
 
-  onDecrementCartItem(product: ICartItem): void {
-    if (product.quantity == 0) {
+  onDecrementCartItem(product: ICartItem): void 
+  {
+    product.quantity--;
+    if (product.quantity < 0) {
       // TODO: USE toasters / inline messages
+      product.quantity=0;
       alert('Quantity cannot be negative');
     }
-    product.quantity--;
+  
     this.sumtotal();
   }
 
-  sumtotal() {
+  sumtotal() 
+  {
+    console.log(this.total);
+   
     this.total = this.cartList.reduce(
       (previous, current) => current.price * current.quantity + previous,
       0
     );
-    //  this.cartList.reduce(() => {
+     
+    if(this.total<=0)
+    {
+      this.total=0;
+      this.tax=0;
+    }
+    else this.tax=30.25;
 
-    //  });
+
+    
+    
   }
 
   checkOut() {

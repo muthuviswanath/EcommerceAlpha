@@ -5,13 +5,13 @@ import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { ProductCardComponent } from './product-card/product-card.component';
-import { ThankkYouComponent } from './thankk-you/thankk-you.component';
 import { CartComponent } from './cart/cart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { CRUDProductComponent } from './dummycrud/dummycrud.component';
 import { NewarrivalComponent } from './newarrival/newarrival.component';
 import { OrderComponent } from './order/order.component';
 import { ProductDescriptionComponent } from './product-description/product-description.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -19,7 +19,7 @@ const routes: Routes = [
   {path:'order',component:OrderComponent},
   {path:'product-description',component:ProductDescriptionComponent},
   {path:'product-card',component:ProductCardComponent},
-  {path:'thankk-you',component:ThankkYouComponent},
+  {path:'thank-you',component:ThankYouComponent},
  {path:'cart',component:CartComponent},
  {path:'wishlist',component:WishlistComponent},
  {path:'newarrival',component:NewarrivalComponent},

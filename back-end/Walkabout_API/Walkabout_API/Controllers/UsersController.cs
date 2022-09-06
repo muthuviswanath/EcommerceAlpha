@@ -30,32 +30,21 @@ namespace Walkabout_API.Controllers
 
         // GET: api/Users/5
         [HttpGet("{username}")]
-        public async Task<ActionResult<IEnumerable<User>>> GetUser(string username)
+        public async Task<ActionResult<User>> GetUser(string username)
         {
             var user = _context.Users.Where(u => u.UserName == username).ToList();
-
+            
             if (user == null)
             {
                 return NotFound();
             }
+            System.Diagnostics.Debug.WriteLine(user);
 
-            return user;
+            return user[0];
         }
 
-        [HttpGet("Username/{username}")]
+   
 
-        public int GetUserIdByName(string username)
-        {
-            var user = _context.Users.FirstOrDefault(u => u.UserName.Equals(username));
-
-            if (user == null)
-            {
-                return 0;
-            }
-
-            return user.UserId;
-
-        }
 
 
 
