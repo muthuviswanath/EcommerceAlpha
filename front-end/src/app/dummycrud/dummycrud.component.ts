@@ -12,13 +12,13 @@ import { NgModel } from '@angular/forms';
   styleUrls: ['./dummycrud.component.css']
 })
 
-export class CRUDProductComponent implements OnInit 
+export class CRUDProductComponent implements OnInit
 {
 
   productList:IProduct[]=[];
   model : IProduct;
 
-  product: IProduct = 
+  product: IProduct =
   {
     productId:null,
     productName:'',
@@ -73,7 +73,7 @@ export class CRUDProductComponent implements OnInit
         response=>
         {
           this.GetAllProducts();
-          this.product = 
+          this.product =
           {
             productId:null,
             productName:'',
@@ -92,7 +92,7 @@ export class CRUDProductComponent implements OnInit
     {
        this.updateProduct(this.product);
     }
-   
+
   }
 
   updateProduct(product: IProduct)
@@ -103,7 +103,7 @@ export class CRUDProductComponent implements OnInit
       response=>
       {
         this.GetAllProducts();
-        this.product = 
+        this.product =
           {
             productId:null,
             productName:'',

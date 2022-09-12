@@ -134,16 +134,15 @@ namespace Walkabout_API.Controllers
             {
                 Products = _context.Products.Where(b =>
                                           b.ProductName.Contains(SearchString) ||
-                                          b.ProductCategory.Contains(SearchString) ||
-                                          b.ProductDescription.Contains(SearchString)
+                                          b.ProductCategory.Contains(SearchString) 
+                                         
                                          );
             }
             else
             {
                 Products = _context.Products.Where(b =>
-                                                       (b.ProductName.Contains(SearchString) ||
-                                                       b.ProductCategory.Contains(SearchString) ||
-                                                       b.ProductDescription.Contains(SearchString)) &&
+                                                       (b.ProductName.Contains(SearchString)) ||
+                                                       (b.ProductCategory.Contains(SearchString)) &&
                                                        (b.Price.CompareTo(lowprice) >= 0 && b.Price.CompareTo(highprice) <= 0)
                                                    );
             }

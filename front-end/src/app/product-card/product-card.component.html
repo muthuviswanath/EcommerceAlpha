@@ -21,7 +21,6 @@
 </form>
   </div>
 
-<a class="btn btn-outline-success my-2 my-sm-0" routerLink="/crudproduct" *ngIf="sessionStorage.getItem('UserRole')"> Modify Products</a>
 
 
 
@@ -40,8 +39,7 @@
         <div class="left">
           <div class="details">
             <h1 style="font-size: 18px;">{{ prod.productName }}</h1>
-            <span style="text-decoration: line-through; font-size: 15px; margin-right: 5px;">{{ prod.price | currency:'INR'}}</span>
-            <span style="font-size: 15px;">{{prod.productOfferPrice | currency:'INR'}}</span>
+            <span style="font-size: 15px;">{{prod.price | currency:'INR'}}</span>
           </div>
 
           <div class="buy">

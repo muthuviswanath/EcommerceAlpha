@@ -73,7 +73,7 @@ export class CartComponent implements OnInit {
       product.quantity=5;
       alert('ONLY 5 ITEMS ALLOWED PER PRODUCT FOR A USER');
     }
-   
+
     // this.quant++;
 
     // if(this.quant > 5){
@@ -85,7 +85,7 @@ export class CartComponent implements OnInit {
     this.sumtotal();
   }
 
-  onDecrementCartItem(product: ICartItem): void 
+  onDecrementCartItem(product: ICartItem): void
   {
     product.quantity--;
     if (product.quantity < 0) {
@@ -93,19 +93,19 @@ export class CartComponent implements OnInit {
       product.quantity=0;
       alert('Quantity cannot be negative');
     }
-  
+
     this.sumtotal();
   }
 
-  sumtotal() 
+  sumtotal()
   {
     console.log(this.total);
-   
+
     this.total = this.cartList.reduce(
       (previous, current) => current.price * current.quantity + previous,
       0
     );
-     
+
     if(this.total<=0)
     {
       this.total=0;
@@ -114,8 +114,8 @@ export class CartComponent implements OnInit {
     else this.tax=30.25;
 
 
-    
-    
+
+
   }
 
   checkOut() {
@@ -143,6 +143,7 @@ export class CartComponent implements OnInit {
                 //this.router.navigate(['/thankk-you']);
               });
           }
+          window.location.reload();
         });
 
     }

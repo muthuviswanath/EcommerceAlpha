@@ -17,8 +17,12 @@
                 <a class="nav-link" routerLink="/home">Home </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/product-card" (click)="clearsession()">Products</a>
+                <a class="nav-link" routerLink="/product-card" (click)="clearsession()" *ngIf="sessionStorage.getItem('UserRole') != 'seller'">Products</a>
+
             </li>
+            <li class="nav-item">
+            <a class="btn btn-outline-success my-2 my-sm-0" routerLink="/crudproduct" *ngIf="sessionStorage.getItem('UserRole') == 'seller'"> Modify Products</a>
+          </li>
             <li class="nav-item">
               <a class="nav-link" routerLink="/newarrival">New Arrivals</a>
           </li>
@@ -41,9 +45,9 @@
         </ul>
 
 
-        <ul class="navbar-nav mr-auto nav" *ngIf="sessionStorage.getItem('Username')" >
+        <ul class="navbar-nav mr-auto nav" *ngIf="sessionStorage.getItem('Username') && sessionStorage.getItem('UserRole') != 'seller'" >
           <li class="nav-item">
-            <a routerLink="/order" class="nav-link">Order History</a>
+            <a routerLink="/order" class="nav-link" >Order History</a>
           </li>
           <li class="nav-item">
             <a routerLink="/wishlist" class="position-relative">

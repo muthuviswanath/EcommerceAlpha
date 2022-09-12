@@ -33,12 +33,14 @@ export class HeaderComponent implements OnInit {
           this.cartList = res;
           this.cartListLength = this.cartList.length;
           console.log("sdviubsdiv",this.cartListLength);
+
         });
         this.wishlistservice
         .getAllWishlistInfo(this.userId)
         .subscribe((res) => {
           this.wishList = res;
           this.wishListLength = this.wishList.length;
+
         });
   }
   logout():void

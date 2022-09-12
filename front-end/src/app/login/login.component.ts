@@ -18,9 +18,9 @@ import {
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit 
+export class LoginComponent implements OnInit
 {
-  
+
   constructor(
     private http: HttpClient,
     private route: Router
@@ -29,20 +29,20 @@ export class LoginComponent implements OnInit
   ngOnInit() {}
   invalidLogin: boolean;
   userobject : any;
-  login = (form: NgForm) => 
+  login = (form: NgForm) =>
   {
     const credentials = {
       userName: form.value.userName,
       password: form.value.password,
   };
-    
+
     console.log(credentials);
-    if (form.valid) 
+    if (form.valid)
     {
       this.http
         .post('http://localhost:5000/api/Auth/login', credentials)
         .subscribe({
-          next: (response: IAuthenticatedResponse) => 
+          next: (response: IAuthenticatedResponse) =>
           {
             const token = response.token;
             this.http
@@ -51,19 +51,19 @@ export class LoginComponent implements OnInit
                   credentials.userName
 
               )
-              .subscribe((res) => 
+              .subscribe((res) =>
               {
-                
+
                 this.userobject = res;
                 sessionStorage.setItem('UserID',this.userobject.userId);
                 sessionStorage.setItem('Username',this.userobject.userName);
                 sessionStorage.setItem('UserRole',this.userobject.role);
-                alert("hello");
+                //alert("hello");
 
               });
 
-              
-              
+
+
             sessionStorage.setItem('jwt', token);
             this.invalidLogin = false;
             this.route
